@@ -25,13 +25,13 @@ function changeText() {
     setInterval(() => {
         selectedHeyListIndex += 1;
         selectedAdjListIndex += 1;
-        if (selectedHeyListIndex >= 0 && selectedHeyListIndex < listLength) {
+        /* if (selectedHeyListIndex >= 0 && selectedHeyListIndex < listLength) {
             heyText.innerHTML = `${heyTextList[selectedHeyListIndex]}`;
         }
         if (selectedHeyListIndex >= listLength) {
             selectedHeyListIndex = 0;
             heyText.innerHTML = `${heyTextList[selectedHeyListIndex]}`;
-        }
+        } */
         if (selectedAdjListIndex >= 0 && selectedAdjListIndex < adjListLength) {
             adjectiveText.innerHTML = `${adjectiveList[selectedAdjListIndex]}`;
         }

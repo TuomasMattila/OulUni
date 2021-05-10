@@ -185,7 +185,7 @@ header {
     flex-direction: column;
     width: 100%;
     height: var(--header-height);
-    background-color: var(--color-secondary);
+    background-color: #433950;
     box-shadow: var(--shadow-s);
     justify-content: center;
     align-items: center;
@@ -407,7 +407,7 @@ header.minimized {
     justify-content: center;
     align-items: flex-end;
     color: var(--almostwhite);
-    animation: fadeInOut 3000ms infinite;
+    /* animation: fadeInOut 3000ms infinite; */
     text-transform: uppercase;
     text-align: center;
 }
