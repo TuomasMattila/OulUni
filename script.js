@@ -16,7 +16,9 @@ var lastScrollPos = 0;
 var timerId;
 
 
-
+// Interates throught a list of adjectives and changes the adjective
+// in home screen every 3 seconds.
+//
 function changeText() {
     let interval = 3000;
     let listLength = heyTextList.length;
@@ -43,8 +45,15 @@ function changeText() {
     }, interval);
 }
 
+// Starts changing the adjectives
+//
 changeText();
 
+
+// Controls the height of the header. Makes header smaller when scrolling down
+// and bigger when scrollnig up. Doesn't do anything when screen width is bigger
+// than 768px.
+//
 function headerHeightControl() {
     console.log('fired')
     var scrollPos = -body.getBoundingClientRect().top;
@@ -59,6 +68,9 @@ function headerHeightControl() {
     document.querySelector('#logoContainer').classList.add('minimized');
     lastScrollPos = scrollPos;
 }
+
+// Throttles the calling of a method. For example when parameters are (headerHeightControl, 200),
+// headerHeightControl is called only once per 200ms.
 
 var throttleFunction = function (func, delay) {
     // If setTimeout is already scheduled, no need to do anything
@@ -76,4 +88,7 @@ var throttleFunction = function (func, delay) {
     }, delay)
 }
 
+// Listens for window scrolls. Calls headerHeightControl() every 
+// 200ms even if scrolling happens all the time. Saves performance.
+// 
 window.addEventListener('scroll', () => throttleFunction(headerHeightControl, 200));
