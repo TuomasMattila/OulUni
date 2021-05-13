@@ -399,6 +399,22 @@ header.minimized {
     color: var(--almostwhite);
 }
 
+#welcomeText::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    opacity: .05;
+    background-image: url('img/moshpit.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: inset 0 -10rem 5rem var(--color-secondary);
+}
+
 @keyframes fadeInOut {
     0% {
         opacity: 0;
@@ -431,6 +447,7 @@ header.minimized {
     /* animation: fadeInOut 3000ms infinite; */
     text-transform: uppercase;
     text-align: center;
+    z-index: 1;
 }
 
 #readyToDiscoverBox {
@@ -438,6 +455,7 @@ header.minimized {
     flex: 3;
     margin-top: 2rem;
     text-align: center;
+    z-index: 1;
 }
 
 #ouluRow h2 {
@@ -557,6 +575,7 @@ header.minimized {
     background-size: contain;
     top: -15.3rem;
     opacity: .1;
+    display: none;
 }
 
 #actualContentContainer .signAndFigure {
