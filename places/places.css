@@ -16,3 +16,45 @@ html {
 #places-text {
     color: var(--color-primary);
 }
+
+#search-term {
+    width: 525px;
+    height: 70px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-style: none;
+    font-size: var(--font-l);
+    font-weight: bold;
+    padding-left: 30px;
+}
+
+#search-button {
+    width: 100px;
+    height: 70px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-style: none;
+    font-size: var(--font-l);
+    font-weight: bold;
+    color: var(--almostwhite);
+    background-color: var(--color-tertiary);
+}
+
+#search-button:hover {
+    background:rgba(255, 255, 255, 0.2);
+}
+
+#search-button:after {
+    content: '';
+    width:100%;
+    height:100%;
+    background:rgba(255, 255, 255, 0.0);
+    position:absolute;
+    top:0;
+    left:0;
+    transition: var(--transition);
+}
+
+#search-button:hover:after {
+    background:rgba(255, 255, 255, 0.2);
+} 
