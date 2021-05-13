@@ -12,6 +12,13 @@ if (currentPageTitle == 'Home') {
     document.querySelector('#maps').classList.add('active');
 } */
 
+var cssRoot = document.querySelector(':root');
+var header = document.querySelector('header');
+var timerId;
+var body = document.body;
+var lastScrollPos = 0;
+
+
 // Controls the height of the header. Makes header smaller when scrolling down
 // and bigger when scrollnig up. Doesn't do anything when screen width is bigger
 // than 768px.
@@ -21,6 +28,7 @@ function headerHeightControl() {
     var scrollPos = -body.getBoundingClientRect().top;
     //console.log(scrollPos);
     if (scrollPos < lastScrollPos || scrollPos == 0) {
+        console.log(scrollPos);
         header.classList.remove('minimized');
         document.querySelector('#logoContainer').classList.remove('minimized');
         lastScrollPos = scrollPos;
@@ -54,3 +62,5 @@ var throttleFunction = function (func, delay) {
 // 200ms even if scrolling happens all the time. Saves performance.
 // 
 window.addEventListener('scroll', () => throttleFunction(headerHeightControl, 200));
+
+
