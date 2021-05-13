@@ -93,6 +93,7 @@ html {
     width: 100%;
     font-size: 62.5%;  /* =10px */
     min-height: -webkit-fill-available;
+    background-color: var(--lightgrey);
 }
 
 body {
