@@ -25,7 +25,7 @@ function initMap() {
   };
 
   // The marker, positioned at Uluru
-/*   const marker = new google.maps.Marker({
+  const marker = new google.maps.Marker({
     position: yliopistoLoc,
     map: map,
     label: {
@@ -37,9 +37,7 @@ function initMap() {
     fontSize: "24px",
     animation: google.maps.Animation.DROP,
     icon: svgMarker
-  }); */
-
-  /* map.set('styles',customStyled);  */
+  });
 }
 
 

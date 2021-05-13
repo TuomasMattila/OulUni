@@ -13,7 +13,7 @@
     --secondary-lightness: 45%; 
     --color-secondary: hsla(var(--secondary), var(--secondary-lightness), 100%); 
     --color-secondary-50: hsla(var(--secondary), calc(var(--secondary-lightness) - 0%), 50%);
-    --color-secondary-darker: #5b4c70; 
+    --color-secondary-darker: #534764; 
     --color-secondary-lighter: #726483; 
 
     /* Tumma viininpunainen */
@@ -90,6 +90,8 @@ h4 {
 
 p {
     font-size: var(--font-m);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 150%;
 }
 
 * {
@@ -112,7 +114,11 @@ body {
     min-height: -webkit-fill-available;
 }
 
-button {
+a > button {
+    text-decoration: none;
+}
+
+.button {
     height: 3rem;
     width: 8rem;
     padding: 1.6rem 1.8rem;
@@ -131,9 +137,11 @@ button {
     color: var(--color-tertiary);
     font-weight: normal;
     overflow: hidden;
+    text-decoration: none;
+    z-index: 98;
 }
 
-button:after {
+.button:after {
     content: '';
     width:100%;
     height:100%;
@@ -144,16 +152,16 @@ button:after {
     transition: var(--transition);
 }
 
-button:hover:after {
+.button:hover:after {
     background:rgba(255, 255, 255, 0.2);
 } 
 
-.buttonBig {
+.button.buttonBig {
     /* default override */
     letter-spacing: .1rem;
     /*  */
     min-width: min-content;
-    padding: 4.0rem 3.5rem;
+    padding: 3.0rem 3.5rem;
     background-color: var(--color-tertiary);
     color: var(--almostwhite);
     border-radius: 1.4rem;
@@ -163,12 +171,12 @@ button:hover:after {
 }
 
 
-.buttonBig .material-icons {
+.button.buttonBig .material-icons {
     font-size: var(--font-xl);
     margin-left: 3rem;
 }
 
-.buttonSmallHollow {
+.button.buttonSmallHollow {
     /* default override */
     justify-content: center;
     box-shadow: 0.0rem 0.3rem 1rem rgba(0, 0, 0, 0.0);
@@ -180,7 +188,7 @@ button:hover:after {
     font-size: var(--font-xs);
 }
 
-.buttonSmallHollow:hover:after {
+.button .buttonSmallHollow:hover:after {
     /* default override */
     background:rgba(0, 0, 0, 0.2);
     /*  */
@@ -196,7 +204,7 @@ header {
     flex-direction: column;
     width: 100%;
     height: var(--header-height);
-    background-color: #433950;
+    background-color: var(--color-secondary-darker);
     box-shadow: var(--shadow-s);
     justify-content: center;
     align-items: center;
@@ -376,9 +384,11 @@ header.minimized {
     flex-direction: column;
     width: 100%;
     min-height: 100%;
+    align-items: center;
 }
 
 #welcomeText {
+    position: relative;
     display: flex;
     flex-direction: column;
     height: calc(var(--app-height, 1vh) * 100);
@@ -425,7 +435,7 @@ header.minimized {
 
 #readyToDiscoverBox {
     display: block;
-    flex: 2;
+    flex: 3;
     margin-top: 2rem;
     text-align: center;
 }
@@ -464,22 +474,93 @@ header.minimized {
     justify-content: center;
     align-items: flex-start;
     flex: 2;
+    position: relative;
 }
 
 #firstWave {
-    display: block;
+    position: absolute;
     width: 100%;
+    height: 30rem;
+    bottom: -30rem;
+    z-index: 0;
+    transform: scale(-1, 1);
+    
+    background-image: url('img/wave.svg');
+    background-repeat: no-repeat;
+    background-position: top;
+    animation: waves 2s;
+    display: none;
 }
 
-.textbox {
+@keyframes waves {
+    0% {
+        height: 60rem;
+        bottom: -60rem;
+    }
+    100% {
+        height: 30rem;
+        bottom: -30rem;
+    }
+}
+
+
+#actualContentContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 100rem;
+    height: auto;
+    position: relative;
+    top: 0rem;
+}
+
+#actualContentContainer .textBox {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    position: relative;
+    background-color: var(--almostwhite);
+    color: var(--tertiary);
+    padding: 2rem;
+    box-sizing: border-box;
+    border-radius: 0rem;
+}
+
+#actualContentContainer .headerWrapper {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    position: relative;
+    margin-bottom: 2rem;
+    max-width: 40rem;
 }
 
-#firstWave > svg {
-    transform: scaleX(-1);
+#actualContentContainer .headerWrapper:before {
+    content: '';
     display: block;
+    height: auto;
+    width: 1.0rem;
+    background-color: var(--color-primary);
+    top: 0;
+    margin-right: 1rem;
+
+}
+
+.signAndFigure {
+    position: absolute;
+    width: 20.6rem;
+    height: 15.3rem;
+    background-image: url('img/hahmoJaKyltti.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    top: -15.3rem;
+    opacity: .1;
+}
+
+#actualContentContainer .signAndFigure {
+    display: none;
 }
 
 @media only screen and (min-width: 768px) {
@@ -517,6 +598,36 @@ header.minimized {
 
     #logoContainer.minimized {
         transform: scale(1.0);
+    }
+
+    #buttonBox .signAndFigure {
+        display: none;
+    }
+
+    #actualContentContainer .signAndFigure {
+        display: block;
+    }
+
+    .signAndFigure {
+        opacity: 1;
+        width: 35.9rem;
+        height: 30.3rem;
+        right: 0;
+        top: -30.3rem;
+
+    }
+
+    #actualContentContainer .textBox {
+        padding: 4rem;
+        border-radius: 1rem;
+    }
+
+    #actualContentContainer {
+        top: -5rem;
+    }
+
+    #firstWave {
+        display: block;
     }
 }
 
