@@ -1,42 +1,46 @@
-// Controls the height of the header. Makes header smaller when scrolling down
-// and bigger when scrollnig up. Doesn't do anything when screen width is bigger
-// than 768px.
+let map;
+
+const yliopistoLoc = { lat: 65.059316, lng: 25.466266};
+
+//  Maps stuff
 //
-function headerHeightControl() {
-    console.log('fired')
-    var scrollPos = -body.getBoundingClientRect().top;
-    //console.log(scrollPos);
-    if (scrollPos < lastScrollPos || scrollPos == 0) {
-        header.classList.remove('minimized');
-        document.querySelector('#logoContainer').classList.remove('minimized');
-        lastScrollPos = scrollPos;
-        return;
-    }
-    header.classList.add('minimized');
-    document.querySelector('#logoContainer').classList.add('minimized');
-    lastScrollPos = scrollPos;
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    mapId: '4c04de1daa64bb31',
+    center: { lat: 65.05637, lng: 25.468308 },
+    zoom: 15,
+    disableDefaultUI: true,
+    gestureHandling: 'greedy'
+  });
+  
+  const svgMarker = {
+    path:
+      "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
+    fillColor: "green",
+    fillOpacity: 0.5,
+    strokeWeight: 1,
+    rotation: 0,
+    scale: 3,
+    anchor: new google.maps.Point(15, 30),
+  };
+
+  // The marker, positioned at Uluru
+/*   const marker = new google.maps.Marker({
+    position: yliopistoLoc,
+    map: map,
+    label: {
+      text : "Oulun yliopisto",
+      fontSize: "14pt",
+      color: "white",
+      background: "black"
+    },
+    fontSize: "24px",
+    animation: google.maps.Animation.DROP,
+    icon: svgMarker
+  }); */
+
+  /* map.set('styles',customStyled);  */
 }
 
-// Throttles the calling of a method. For example when parameters are (headerHeightControl, 200),
-// headerHeightControl is called only once per 200ms.
 
-var throttleFunction = function (func, delay) {
-    // If setTimeout is already scheduled, no need to do anything
-    if (timerId) {
-        return
-    }
 
-    // Schedule a setTimeout after delay seconds
-    timerId = setTimeout(function () {
-        func();
-
-        // Once setTimeout function execution is finished, timerId = undefined so that in <br>
-        // the next scroll event function execution can be scheduled by the setTimeout
-        timerId = undefined;
-    }, delay)
-}
-
-// Listens for window scrolls. Calls headerHeightControl() every 
-// 200ms even if scrolling happens all the time. Saves performance.
-// 
-window.addEventListener('scroll', () => throttleFunction(headerHeightControl, 200));
