@@ -93,13 +93,6 @@ var throttleFunction = function (func, delay) {
 // 
 window.addEventListener('scroll', () => throttleFunction(headerHeightControl, 200));
 
-class OneDialog extends HTMLElement {
-    connectedCallback() {
-      this.innerHTML = `<h1>Hello, World!</h1>`;
-    }
-  }
-  
-  customElements.define('one-dialog', OneDialog);
 
 
 
