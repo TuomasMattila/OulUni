@@ -44,26 +44,34 @@
 
         <div id="content">
 
-            <div id="discover-places-text">
-                <h2>
-                    <span id="discover-text">Discover</span>
-                    <span id="places-text">Places.</span>
-                    <div id="search-bar">
-                        <form action="#">
-                            <input id="search-term" placeholder="Enter keywords">
-                            <input id="search-button" type="button" value="Search">
-                        </form>
-                    </div>
-                </h2>
-            </div>
+            <div id="content-container">
 
-            <div id="places-image">
-                <img src="../img/imgPlaces.svg"/>
+                <div id="discover-places-and-image">
+                    <h2>
+                        <span id="discover-text">Discover</span>
+                        <span id="places-text">Places.</span>
+                        <span id="places-image"><img src="../img/imgPlaces.svg" alt=""></span>
+                    </h2>
+                </div>
+
+                <div id="search-bar">
+                    <form action="#">
+                        <input id="search-box" placeholder="Enter keywords">
+                        <input id="search-button" type="button" value="Search">
+                    </form>
+                </div>  
+                
+                <div id="categories">
+                    <span><button id="attractions-button" class="category-button" onclick="toggleButton()">Attractions</button></span>
+                    <span><button id="restaurants-button" class="category-button" onclick="toggleButton()">Restaurants</button></span>
+                    <span><button id="partyspots-button" class="category-button" onclick="toggleButton()">Partyspots and hangouts</button></span>
+                    <span><button id="clubs-button" class="category-button" onclick="toggleButton()">Clubs and bars</button></span>
+                    <span><button id="campuses-button" class="category-button" onclick="toggleButton()">Campuses</button></span>
+                </div>
+
             </div>
 
         </div>
-
-
 
     </body>
 

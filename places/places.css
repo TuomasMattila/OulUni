@@ -3,12 +3,14 @@ html {
 }
 
 #content {
-    display: block;
-    flex: 2;
+    display: flex;
     margin-top: 150px;
-    text-align: center;
+    text-align: left;
+    justify-self: center;
+    flex-wrap: nowrap;
 }
 
+/*Heading*/
 #discover-text {
     color: white;
 }
@@ -17,7 +19,14 @@ html {
     color: var(--color-primary);
 }
 
-#search-term {
+/*Search bar (box and button)*/
+#search-bar {
+    position: relative;
+    margin-top: 20px;
+}
+
+/*Search box*/
+#search-box {
     width: 525px;
     height: 70px;
     border-top-left-radius: 12px;
@@ -28,8 +37,9 @@ html {
     padding-left: 30px;
 }
 
+/*Search button*/
 #search-button {
-    width: 100px;
+    width: 110px;
     height: 70px;
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
@@ -38,9 +48,12 @@ html {
     font-weight: bold;
     color: var(--almostwhite);
     background-color: var(--color-tertiary);
+    transition: all ease-in-out .2s;
+    position: absolute;
 }
 
 #search-button:hover {
+    cursor: pointer;
     background:rgba(255, 255, 255, 0.2);
 }
 
@@ -57,4 +70,40 @@ html {
 
 #search-button:hover:after {
     background:rgba(255, 255, 255, 0.2);
-} 
+}
+
+/*Categories*/
+.category-button {
+    margin-top: 20px;
+    margin-right: 20px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+}
+
+#attractions-button {
+    border-radius: 50px;
+    background-color: rgba(211, 192, 127, 1);
+}
+
+#restaurants-button{
+    border-radius: 50px;
+    background-color: rgba(211, 127, 127, 1);
+}
+
+#partyspots-button {
+    border-radius: 50px;
+    background-color: rgba(127, 211, 176, 1);
+}
+
+#clubs-button {
+    border-radius: 50px;
+    background-color: rgba(199, 127, 211, 1);
+}
+
+#campuses-button {
+    border-radius: 50px;
+    background-color: rgb(82, 94, 160);
+}
+
