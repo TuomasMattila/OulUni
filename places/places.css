@@ -19,6 +19,10 @@ html {
     color: var(--color-primary);
 }
 
+#places-image > img {
+    width: 400px;
+}
+
 /*Search bar (box and button)*/
 #search-bar {
     position: relative;
