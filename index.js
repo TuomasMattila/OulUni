@@ -22,7 +22,7 @@ listOfAdjectives.push(new AdjectiveText('Drunk', '#D37F98'));
 listOfAdjectives.push(new AdjectiveText('Drunker', '#AE7FD3'));
 listOfAdjectives.push(new AdjectiveText('Extra-<br>ordinary', '#7F91D3', 'var(--font-2xl)'));
 
-let listIndex = 4;
+let listIndex = 0;
 let adjectiveText = document.querySelector('#adjective > h2');
 let adjective = document.querySelector('#adjective');
 adjectiveText.innerHTML = `${listOfAdjectives[listIndex].text}`;

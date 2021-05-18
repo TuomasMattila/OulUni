@@ -2,9 +2,9 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: calc(var(--app-height, 1vh) * 100);
-    min-height: 45rem;
-    max-height: 100rem;
+    min-height: clamp(55rem, 100%, 100rem);
+/*     min-height: 45rem; */
+/*     max-height: 100rem; */
     width: 100%;
     background: radial-gradient(ellipse at top, var(--color-secondary-lighter), var(--color-secondary));
     color: var(--almostwhite);
@@ -218,10 +218,10 @@
 
     .signAndFigure {
         opacity: 1;
-        width: 35.9rem;
-        height: 30.3rem;
-        right: 0;
-        top: -30.3rem;
+        width: 30.9rem;
+        height: 25.3rem;
+        right: -4rem;
+        top: -25.3rem;
 
     }
 
