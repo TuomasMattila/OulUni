@@ -39,6 +39,7 @@ function changeAdjective() {
 
     adjective.classList.add('hide');
 
+
     setTimeout(() => {
         adjective.classList.remove('hide');
         listIndex += 1;
@@ -49,6 +50,9 @@ function changeAdjective() {
         adjectiveText.style.color = `${listOfAdjectives[listIndex].color}`;
         adjectiveText.style.fontSize = `${listOfAdjectives[listIndex].fontSize}`;
         //console.log(listIndex);
+        let nextWidth = adjectiveText.offsetWidth;
+        console.log(nextWidth);
+        adjective.style.width = `${nextWidth}px`;
     }, 500);
 
 
@@ -59,7 +63,8 @@ function changeAdjective() {
 // Starts changing the adjectives
 //
 setInterval(changeAdjective, 3000);
-
+let nextWidth = adjectiveText.offsetWidth;
+adjective.style.width = `${nextWidth}px`;
 
 
 

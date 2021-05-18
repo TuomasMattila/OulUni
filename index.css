@@ -82,29 +82,33 @@
     color: var(--almostwhite);
 }
 
+#the {
+    display: flex;
+min-width: min-content;
+    justify-content: flex-end;
+}
+
 #adjective {
     display: flex;
-    flex: 1;
+    width: fit-content;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    margin-right: .5rem;
     color: var(--color-primary);
-    transition: all 500ms;
-    transform: translateY(0rem);
+    transition: opacity 500ms ease-in, transform 500ms ease-in-out,  width 200ms linear;
     line-height: .9;
+    padding: 0 1rem;
 }
 
 #adjective.hide {
     opacity: 0.0 !important;
-    transform: translate(-1rem);
+    transform: translateY(-.5rem);
 }
 
 #oulu {
     display: flex;
-    flex: 1;
+    min-width: min-content;
     justify-content: flex-start;
-    margin-left: .5rem;
 }
 
 #buttonBox {
