@@ -32,10 +32,10 @@
     --font-xxs: 1.2rem;
     --font-xs: 1.4rem;
     --font-s: 1.6rem;
-    --font-m: 1.8rem;
-    --font-l: 2.4rem;
-    --font-xl: 3.2rem;
-    --font-2xl: 4.8rem;
+    --font-m: 1.4rem;
+    --font-l: 1.6rem;
+    --font-xl: 2.4rem;
+    --font-2xl: 2.8rem;
     --font-3xl: 3.2rem;
     --font-4xl: 4.8rem;
 
@@ -70,12 +70,12 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: var(--font-4xl);
-    font-weight: bold;
+    font-weight: 700;
 }
 
 h2 {
     font-size: var(--font-3xl);
-    font-weight: bold;
+    font-weight: 700;
 }
 
 h3 {
@@ -87,11 +87,15 @@ h4 {
     font-size: var(--font-xl);
     font-weight: bold;
 }
+h4 {
+    font-size: var(--font-l);
+    font-weight: bold;
+}
 
 p {
-    font-size: var(--font-m);
+    font-size: 1.6rem;
     font-family: Arial, Helvetica, sans-serif;
-    line-height: 150%;
+    line-height: 2;
 }
 
 * {
@@ -165,8 +169,8 @@ a > button {
     background-color: var(--color-tertiary);
     color: var(--almostwhite);
     border-radius: 1.4rem;
-    font-size: var(--font-l);
-    font-weight: bold;
+    font-size: 2.4rem;
+    font-weight: 600;
     box-shadow: 0.0rem 0.3rem 1rem rgba(0, 0, 0, 0.2);
 }
 
@@ -193,8 +197,6 @@ a > button {
     background:rgba(0, 0, 0, 0.2);
     /*  */
 }
-
-
 
 header {
     display: flex;
@@ -249,9 +251,8 @@ header.minimized {
 
 #logoContainer span {
     color: var(--almostwhite);
-    font-weight: bold;
+    font-weight: 600;
 }
-
 
 .logo {
     height: 1rem;
@@ -260,6 +261,12 @@ header.minimized {
     border-radius: 2rem;
     position: relative;
 }
+
+
+#logoContainer a span:nth-child(2) {
+    font-weight: 300;
+}
+
 
 .logo::after {
     content: '';
@@ -387,200 +394,15 @@ header.minimized {
     align-items: center;
 }
 
-#welcomeText {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: calc(var(--app-height, 1vh) * 100);
-    min-height: 45rem;
-    max-height: 100rem;
-    width: 100%;
-    background: radial-gradient(ellipse at top, var(--color-secondary-lighter), var(--color-secondary));
-    color: var(--almostwhite);
-}
-
-#welcomeText::before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    right: 0;
-    left: 0;
-    margin: auto;
-    opacity: .05;
-    background-image: url('img/moshpit.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    box-shadow: inset 0 -10rem 5rem var(--color-secondary);
-}
-
-@keyframes fadeInOut {
-    0% {
-        opacity: 0;
-        transform: translate(-1rem);
-    }
-    10% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    90% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    95% {
-      opacity: 0;
-      transform: translate(1rem);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(1rem);
-      }
-}
-
-#heyBox {
-    display: flex;
-    flex: 3;
-    justify-content: center;
-    align-items: flex-end;
-    color: var(--almostwhite);
-    /* animation: fadeInOut 3000ms infinite; */
-    text-transform: uppercase;
-    text-align: center;
-    z-index: 1;
-}
-
-#readyToDiscoverBox {
-    display: block;
-    flex: 3;
-    margin-top: 2rem;
-    text-align: center;
-    z-index: 1;
-}
-
-#ouluRow h2 {
-    display: inline-block;
-    color: inherit;
-}
-
-#ouluRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    color: var(--almostwhite);
-}
-
-#adjective {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-right: .5rem;
-    color: var(--color-primary);
-    animation: fadeInOut 3000ms infinite;
-}
-
-#oulu {
-    display: flex;
-    flex: 1;
-    justify-content: flex-start;
-    margin-left: .5rem;
-}
-
-#buttonBox {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex: 2;
-    position: relative;
-}
-
-#firstWave {
-    position: absolute;
+footer {
     width: 100%;
     height: 30rem;
-    bottom: -30rem;
-    z-index: 0;
-    transform: scale(-1, 1);
-    
-    background-image: url('img/wave.svg');
-    background-repeat: no-repeat;
-    background-position: top;
-    animation: waves 2s;
-    display: none;
+    background-color: var(--color-secondary-darker);
+    display: grid;
 }
 
-@keyframes waves {
-    0% {
-        height: 60rem;
-        bottom: -60rem;
-    }
-    100% {
-        height: 30rem;
-        bottom: -30rem;
-    }
-}
-
-
-#actualContentContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    max-width: 100rem;
-    height: auto;
-    position: relative;
-    top: 0rem;
-}
-
-#actualContentContainer .textBox {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    width: 100%;
-    position: relative;
-    background-color: var(--almostwhite);
-    color: var(--tertiary);
-    padding: 2rem;
-    box-sizing: border-box;
-    border-radius: 0rem;
-}
-
-#actualContentContainer .headerWrapper {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    margin-bottom: 2rem;
-    max-width: 40rem;
-}
-
-#actualContentContainer .headerWrapper:before {
-    content: '';
-    display: block;
-    height: auto;
-    margin: .5rem 0;
-    width: 1.3rem;
-    background-color: var(--color-primary);
-    top: 0;
-    margin-right: 2rem;
-
-}
-
-.signAndFigure {
-    position: absolute;
-    width: 20.6rem;
-    height: 15.3rem;
-    background-image: url('img/hahmoJaKyltti.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    top: -15.3rem;
-    opacity: .1;
-    display: none;
-}
-
-#actualContentContainer .signAndFigure {
-    display: none;
+footer .footerItem {
+    color: var(--almostwhite);
 }
 
 @media only screen and (min-width: 768px) {
@@ -612,43 +434,14 @@ header.minimized {
         --font-4xl: 9.6rem;
     }
 
-    header.minimized {
+/*     header.minimized {
         height: var(--header-height);
-    }
+    } */
 
     #logoContainer.minimized {
-        transform: scale(1.0);
+        transform: scale(.8);
     }
 
-    #buttonBox .signAndFigure {
-        display: none;
-    }
-
-    #actualContentContainer .signAndFigure {
-        display: block;
-    }
-
-    .signAndFigure {
-        opacity: 1;
-        width: 35.9rem;
-        height: 30.3rem;
-        right: 0;
-        top: -30.3rem;
-
-    }
-
-    #actualContentContainer .textBox {
-        padding: 4rem;
-        border-radius: 1rem;
-    }
-
-    #actualContentContainer {
-        top: -5rem;
-    }
-
-    #firstWave {
-        display: block;
-    }
 }
 
 
