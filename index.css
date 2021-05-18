@@ -127,10 +127,10 @@
 
 @keyframes adjectiveAnim {
     0% {
-        clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+        clip-path: circle(0.0% at 50% 50%);
     }
     100% {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        clip-path: circle(70.7% at 50% 50%);
       }
 }
 
