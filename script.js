@@ -27,7 +27,7 @@ function headerHeightControl() {
     console.log('fired')
     var scrollPos = -body.getBoundingClientRect().top;
     //console.log(scrollPos);
-    if (scrollPos < lastScrollPos || scrollPos == 0) {
+    if (/* scrollPos < lastScrollPos || scrollPos == 0 */ scrollPos == 0) {
         console.log(scrollPos);
         header.classList.remove('minimized');
         document.querySelector('#logoContainer').classList.remove('minimized');

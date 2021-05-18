@@ -9,7 +9,7 @@
     --color-primary-50: hsla(var(--primary), calc(var(--primary-lightness) - 0%), 50%); 
 
     /* Vaalea viininpunainen */
-    --secondary: 266, 16%; 
+    --secondary: 269, 13%; 
     --secondary-lightness: 45%; 
     --color-secondary: hsla(var(--secondary), var(--secondary-lightness), 100%); 
     --color-secondary-50: hsla(var(--secondary), calc(var(--secondary-lightness) - 0%), 50%);
@@ -207,15 +207,19 @@ header {
     flex-direction: column;
     width: 100%;
     height: var(--header-height);
-    background-color: var(--color-secondary-darker);
-    box-shadow: var(--shadow-s);
+    background-color: var(--color-secondary);
+/*     box-shadow: var(--shadow-s); */
     justify-content: center;
     align-items: center;
     transition: var(--transition);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 header.minimized {
     height: 5rem;
+    background-color: var(--color-secondary-darker);
+    border-bottom: 0px solid rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-s);
 }
 
 #headerContent {
@@ -225,6 +229,8 @@ header.minimized {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
+    position: relative;
+    
 }
 
 #logoContainer {
@@ -238,10 +244,12 @@ header.minimized {
     margin-left: 2rem;
     font-size: var(--font-xl);
     transition: var(--transition);
+    box-sizing: border-box;
 }
 
 #logoContainer.minimized {
-    transform: scale(.8);
+    font-size: calc(var(--font-xl) - 0.5rem);
+    padding-bottom: .5rem;
 }
 
 #logoContainer a {
@@ -264,9 +272,9 @@ header.minimized {
 }
 
 
-#logoContainer a span:nth-child(2) {
+/* #logoContainer a span:nth-child(2) {
     font-weight: 300;
-}
+} */
 
 
 .logo::after {
