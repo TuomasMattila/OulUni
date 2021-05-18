@@ -95,9 +95,13 @@ min-width: min-content;
     justify-content: center;
     align-items: center;
     color: var(--color-primary);
-    transition: opacity 500ms ease-in, transform 500ms ease-in-out,  width 200ms linear;
+    transition: opacity 500ms ease-in, transform 500ms ease-in-out,  width 800ms ease;
     line-height: .9;
-    padding: 0 1rem;
+    padding: 0 1.2rem;
+}
+
+#adjective h2 {
+    font-weight: 800;
 }
 
 #adjective.hide {
