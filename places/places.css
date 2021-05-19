@@ -1,13 +1,14 @@
 html {
-    background-color: var(--bg-color);
+    background-color: var(--color-secondary-darker);
 }
 
 #content {
     display: flex;
-    margin-top: 150px;
+    padding-top: 150px;
     text-align: left;
     justify-self: center;
     flex-wrap: nowrap;
+    box-sizing: border-box;
 }
 
 /*Heading*/

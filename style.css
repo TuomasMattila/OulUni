@@ -13,8 +13,8 @@
     --secondary-lightness: 45%; 
     --color-secondary: hsla(var(--secondary), var(--secondary-lightness), 100%); 
     --color-secondary-50: hsla(var(--secondary), calc(var(--secondary-lightness) - 0%), 50%);
-    --color-secondary-darker: #534764; 
-    --color-secondary-lighter: #726483; 
+    --color-secondary-darker: #352447; 
+    --color-secondary-lighter: #352447; 
 
     /* Tumma viininpunainen */
     --tertiary: 231, 100%; 
@@ -51,7 +51,7 @@
 
     --transition: all linear 100ms;
     
-    --shadow-s: .1rem .1rem .5rem rgba(0, 0, 0, 0.2);
+    --shadow-s: .1rem .2rem .5rem rgba(0, 0, 0, 0.5);
 
     --header-height: 9rem;
     --app-height: 1vh;
@@ -173,6 +173,7 @@ a > button {
     font-size: 2.4rem;
     font-weight: 600;
     box-shadow: 0.0rem 0.3rem 1rem rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 
@@ -207,17 +208,17 @@ header {
     flex-direction: column;
     width: 100%;
     height: var(--header-height);
-    background-color: var(--color-secondary);
+    background-color: var(--color-secondary-darker);
 /*     box-shadow: var(--shadow-s); */
     justify-content: center;
     align-items: center;
     transition: var(--transition);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 header.minimized {
     height: 5rem;
-    background-color: var(--color-secondary-darker);
+    background-color: var(--color-tertiary);
     border-bottom: 0px solid rgba(0, 0, 0, 0.1);
     box-shadow: var(--shadow-s);
 }
@@ -242,14 +243,14 @@ header.minimized {
     flex-direction: row;
     width: fit-content;
     margin-left: 2rem;
-    font-size: var(--font-xl);
+    font-size: 3.2rem;
     transition: var(--transition);
     box-sizing: border-box;
 }
 
 #logoContainer.minimized {
-    font-size: calc(var(--font-xl) - 0.5rem);
-    padding-bottom: .5rem;
+   transform: scale(.8);
+    padding-bottom: 0rem;
 }
 
 #logoContainer a {
@@ -462,9 +463,9 @@ footer {
         height: var(--header-height);
     } */
 
-    #logoContainer.minimized {
+/*     #logoContainer.minimized {
         transform: scale(.8);
-    }
+    } */
 
 }
 

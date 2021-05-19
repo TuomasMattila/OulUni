@@ -1,3 +1,5 @@
+
+
 #welcomeText {
     position: relative;
     display: flex;
@@ -6,7 +8,7 @@
 /*     min-height: 45rem; */
 /*     max-height: 100rem; */
     width: 100%;
-    background: radial-gradient(ellipse at top, var(--color-secondary-lighter), var(--color-secondary));
+    background: radial-gradient(ellipse at top, var(--color-secondary-lighter), var(--color-secondary-lighter));
     color: var(--almostwhite);
 }
 
@@ -20,10 +22,11 @@
     margin: auto;
     opacity: .05;
     background-image: url('img/moshpit.jpg');
+    filter: grayscale(100%);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    box-shadow: inset 0 -10rem 5rem var(--color-secondary);
+    box-shadow: inset 0 -20rem 5rem var(--color-secondary-darker);
 }
 
 @keyframes fadeInOut {
@@ -51,7 +54,7 @@
 
 #heyBox {
     display: flex;
-    flex: 1.3;
+    flex: 1.2;
     justify-content: center;
     align-items: flex-end;
     color: var(--almostwhite);
@@ -61,6 +64,10 @@
     z-index: 1;
 }
 
+/* #heyBox h1 {
+    font-size: clamp(4rem, 7.5vw, 7.5vw);
+} */
+
 #readyToDiscoverBox {
     display: flex;
     flex-direction: column;
@@ -69,6 +76,10 @@
     z-index: 1;
     justify-content: center;
 }
+
+/* #readyToDiscoverBox h2 {
+    font-size: clamp(2rem, 6.4vw, 6.4vw);
+} */
 
 #ouluRow h2 {
     color: inherit;
@@ -103,6 +114,7 @@
     line-height: .9;
     padding: 2rem 1.2rem;
     position: relative;
+    transform: scale(1);
 }
 
 #adjectiveGhost {
@@ -114,7 +126,7 @@
     justify-content: center;
     align-items: center;
     color: var(--color-primary);
-    transition: opacity 500ms ease-in, transform 500ms ease-in-out,  width 800ms ease;
+    transition: opacity 500ms ease-in, transform 50ms ease-out,  width 800ms ease;
     line-height: .9;
     padding: 1rem 1.2rem;
     font-size: var(--font-3xl);
@@ -125,14 +137,9 @@
     /* clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%); */
 }
 
-@keyframes adjectiveAnim {
-    0% {
-        clip-path: circle(0.0% at 50% 50%);
-    }
-    100% {
-        clip-path: circle(70.7% at 50% 50%);
-      }
-}
+/* #adjective.anim {
+    transform: scale(.8);
+} */
 
 #adjective h2 {
     font-weight: 600;
@@ -145,8 +152,18 @@
 }
 
 #adjective h2.anim {
-    animation: adjectiveAnim 3500ms ease-out;
+    animation: adjectiveClipAnim 3500ms ease-out;
     padding: 2rem 0;
+}
+
+@keyframes adjectiveClipAnim {
+    0% {
+        clip-path: circle(0.0% at 50% 50%);
+        transform: scale(1);
+    }
+    100% {
+        clip-path: circle(70.7% at 50% 50%);
+      }
 }
 
 #oulu {
@@ -213,6 +230,7 @@
     padding: 4rem;
     box-sizing: border-box;
     border-radius: 0rem;
+    margin-bottom: 7rem;
 }
 
 
@@ -221,7 +239,7 @@
     flex-direction: row;
     position: relative;
     margin-bottom: 2rem;
-    max-width: 40rem;
+    max-width: 50rem;
     min-width: min-content;
 }
 
@@ -230,7 +248,7 @@
     display: block;
     height: auto;
     margin: .5rem 0;
-    width: 1.3rem;
+    min-width: .7rem;
     background-color: var(--color-primary);
     top: 0;
     margin-right: 2rem;
@@ -254,17 +272,18 @@
     display: none;
 }
 
+
 #secondWave {   
     height: 40rem;
     width: 100%;
-    background-image: url('img/wave2.svg');
+    background-image: url('img/wave3.svg');
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-position: bottom;
+    background-size: 2560px 40rem;
     position: relative;
 }
 
-#houses {
+#house {
     width: 13.146rem;
     height: 11.966rem;
     background-image: url('img/house.svg');
@@ -272,10 +291,27 @@
     background-position: center;
     position: absolute;
     left: 0;
+    right: 20rem;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 16.5rem;
+    transform: rotate(-4deg);
+    display: none;
+}
+
+#street {
+    width: 23.1rem;
+    height: 12.2rem;
+    background-image: url('img/street.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 26rem;
     right: 0;
     margin: auto;
-    top: 9rem;
-    transform: rotate(6deg);
+    bottom: 16rem;
+    transform: rotate(9.7deg);
+    display: none;
 }
 
 #sinappiBG {
@@ -284,7 +320,21 @@
     background-color: var(--color-primary);
     display: flex;
     justify-content: center;
-    padding-bottom: 15rem;
+    padding-top: 20rem;
+}
+
+#students {
+    max-width: 50rem;
+    height: 39.79rem;
+    background-image: url('img/students.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -37rem;
+    display: block;
 }
 
 @media only screen and (min-width: 768px) {
@@ -316,7 +366,8 @@
     }
 
     #actualContentContainer {
-        top: -3rem;
+        top: -2rem;
+        margin-bottom: -2rem;
     }
 
     #firstWave {

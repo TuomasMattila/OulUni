@@ -49,10 +49,12 @@ function changeAdjective() {
     let listLength = listOfAdjectives.length;
     adjective.classList.add('hide');
     adjectiveText.classList.remove('anim');
+    adjective.classList.add('anim');
 
     setTimeout(() => {
         adjective.classList.remove('hide');
         adjectiveText.classList.add('anim');
+        adjective.classList.remove('anim');
         //listIndex = getRandomInt(listLength);
         listIndex += 1;
 
