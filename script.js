@@ -63,4 +63,8 @@ var throttleFunction = function (func, delay) {
 // 
 window.addEventListener('scroll', () => throttleFunction(headerHeightControl, 200));
 
+if(document.title == 'Map') {
+    header.classList.add('minimized');
+}
+
 

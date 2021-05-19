@@ -23,6 +23,7 @@ listOfAdjectives.push(new AdjectiveText('Drunker', '#AE7FD3'));
 listOfAdjectives.push(new AdjectiveText('Extra-<br>ordinary', '#7F91D3', 'var(--font-2xl)'));
 listOfAdjectives.push(new AdjectiveText('Sensual', '#D37F98'));
 listOfAdjectives.push(new AdjectiveText('Wild', '#AE7FD3'));
+listOfAdjectives.push(new AdjectiveText('Extra-<br>Terrestrial', '#7FD387', 'var(--font-2xl)'));
 
 let listIndex = 0;
 let previousIndex = 0;
