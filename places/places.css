@@ -128,11 +128,62 @@ html {
 }
 
 .result-box {
+    display: flex;
+    padding-left: 40px;
+    padding-right: 40px;
     padding-top: 20px;
     padding-bottom: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: var(--lightgrey);
     border-radius: 12px;
-    height: 80px;
+    height: 120;
+}
+
+.result-box > img {
+    border-radius: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: grey;
+    margin-right: 40px;
+}
+
+.attraction-box .result-box > img {
+    border-color: rgba(211, 192, 127, 1);;
+}
+
+.restaurant-box .result-box > img {
+    border-color: rgba(211, 127, 127, 1);
+}
+
+.partyspot-box .result-box > img {
+    border-color: rgba(127, 211, 176, 1);
+}
+
+.club-box .result-box > img {
+    border-color: rgba(199, 127, 211, 1);
+}
+
+.campus-box .result-box > img {
+    border-color: rgb(80, 170, 255);
+}
+
+#result-texts > h5 {
+    color: black;
+}
+
+#result-texts > p{
+    color: darkgrey;
+}
+
+.view-button {
+    align-self: center;
+    height: 50px;
+    width: 110px;
+    margin-left: auto;
+    font-size: var(--font-l);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: darkgrey;
+    background-color: transparent;
 }
