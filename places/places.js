@@ -1,6 +1,6 @@
 function toggleButton(elementId) {
     let btn = document.getElementById(elementId);
-    let selector = '.' + elementId.replace("s-button", "-box");
+    let selector = '.' + elementId.replace("s-button", "-box"); // EI TOIMI CAMPUSES-BUTTON:lle
     let elements = document.querySelectorAll(selector);
     if(btn.innerHTML.includes("✓")) {
         btn.innerHTML = btn.innerHTML.replace(" ✓", "");
