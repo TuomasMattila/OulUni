@@ -16,7 +16,7 @@ function toggleButton(elementId) {
                                         break;
             case "clubs-button":        btn.style.backgroundColor = "rgba(199, 127, 211, 1)";
                                         break;
-            case "campuses-button":     btn.style.backgroundColor = "rgb(82, 94, 160)";
+            case "campuses-button":     btn.style.backgroundColor = "rgb(80, 170, 255)";
                                         break;
             default: break;
         }
