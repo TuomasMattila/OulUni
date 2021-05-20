@@ -27,7 +27,7 @@ function headerHeightControl() {
     console.log('fired')
     var scrollPos = -body.getBoundingClientRect().top;
     //console.log(scrollPos);
-    if (/* scrollPos < lastScrollPos || scrollPos == 0 */ scrollPos == 0) {
+    if (/* scrollPos < lastScrollPos || scrollPos == 0 */ scrollPos == 0 && document.title != 'Map') {
         console.log(scrollPos);
         header.classList.remove('minimized');
         document.querySelector('#logoContainer').classList.remove('minimized');
@@ -63,8 +63,10 @@ var throttleFunction = function (func, delay) {
 // 
 window.addEventListener('scroll', () => throttleFunction(headerHeightControl, 200));
 
-if(document.title == 'Map') {
-    header.classList.add('minimized');
-}
+setTimeout(() => {
+    if(document.title == 'Map') {
+        header.classList.add('minimized');
+    }
+}, 1000);
 
 
