@@ -42,3 +42,9 @@ function showElements(elements) {
         box.style.display = 'block';
     }); 
 }
+
+function search() {
+    const results = document.querySelector('#categories');
+    console.log(results);
+    results.scrollIntoView({behavior: "smooth", block: "start"});
+}

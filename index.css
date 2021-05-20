@@ -295,6 +295,16 @@
     display: none;
 }
 
+#wrapper {
+    position: relative;
+    width: 100%;
+    height: 50rem;
+    background: linear-gradient(var(--lightgrey), rgb(207, 182, 129));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
 
 #secondWave {   
     height: 40rem;
@@ -336,6 +346,55 @@
     margin-right: auto;
     bottom: 16rem;
     transform: rotate(9.7deg);
+    display: block;
+}
+
+#pines {
+    width: 13.703rem;
+    height: 13.035rem;
+    background-image: url('img/pines.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 0;
+    right: -120rem;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 14.5rem;
+    transform: rotate(-3deg);
+    display: block;
+}
+
+
+#sign {
+    width: 4.689rem;
+    height: 9.268rem;
+    background-image: url('img/sign.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: -90rem;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 9.4rem;
+    transform: rotate(2deg);
+    display: block;
+}
+
+#house2 {
+    width: 10.884rem;
+    height: 6.103rem;
+    background-image: url('img/house2.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 0rem;
+    right: -12rem;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 16.8rem;
+    transform: rotate(9deg);
     display: block;
 }
 
