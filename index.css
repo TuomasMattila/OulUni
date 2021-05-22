@@ -1,10 +1,8 @@
-
-
-#welcomeText {
+    #welcomeText {
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: clamp(60rem, 100%, 100rem);
+    min-height: clamp(60rem, 100vh, 100rem);
 /*     min-height: 45rem; */
 /*     max-height: 100rem; */
     width: 100%;
@@ -114,6 +112,7 @@
     line-height: .9;
     padding: 2rem 1.2rem;
     position: relative;
+    -webkit-text-stroke-width: .2rem;
 }
 
 #adjective.drunker {
@@ -153,9 +152,8 @@
     padding: 1rem 1.2rem;
     font-size: var(--font-3xl);
     z-index: -1;
-  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-  -webkit-text-stroke-width: .1rem;
-    font-weight: 400;
+    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: .1rem;
     /* clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%); */
 }
 
@@ -164,7 +162,7 @@
 } */
 
 #adjective h2 {
-    font-weight: 600;
+    font-weight: 500;
 }
 
 #adjective.hide {
@@ -253,6 +251,10 @@
     box-sizing: border-box;
     border-radius: 0rem;
     margin-bottom: 7rem;
+}
+
+#actualContentContainer .textBox:last-child {
+    margin-bottom: 20rem;
 }
 
 

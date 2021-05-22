@@ -52,20 +52,24 @@ function initMap() {
     anchor: new google.maps.Point(15, 30),
   };
 
-  // The marker, positioned at Uluru
+  // The marker, positioned at 
   const marker = new google.maps.Marker({
     position: yliopistoLoc,
     map: map,
-    label: {
-      text : "Oulun yliopisto",
-      fontSize: "14pt",
-      color: "white",
-      background: "black"
-    },
     fontSize: "24px",
     animation: google.maps.Animation.DROP,
-    icon: svgMarker
   });
+
+  marker.setIcon('https://img.icons8.com/fluent/48/000000/marker-storm.png');
+  marker.setLabel('test');
+
+  var information = new google.maps.InfoWindow({
+    content: 'test'
+    });
+    
+    marker.addListener('click', function() {
+    information.open(map, marker);
+    });
 }
 
 
