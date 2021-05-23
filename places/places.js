@@ -1,6 +1,12 @@
 function toggleButton(elementId) {
     let btn = document.getElementById(elementId);
-    let selector = '.' + elementId.replace("s-button", "-box"); // EI TOIMI CAMPUSES-BUTTON:lle
+    let selector;
+    console.log(elementId);
+    if(elementId == "campuses-button") {
+        selector = '.' + elementId.replace("es-button", "-box");
+    } else {
+        selector = '.' + elementId.replace("s-button", "-box");
+    }
     let elements = document.querySelectorAll(selector);
     if(btn.innerHTML.includes("✓")) {
         btn.innerHTML = btn.innerHTML.replace(" ✓", "");
