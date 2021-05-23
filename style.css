@@ -519,9 +519,6 @@ footer {
         justify-content: center;
     }
 
-    #nav a {
-    }
-
     :root {
         --font-xxs: 1.2rem;
         --font-xs: 1.4rem;

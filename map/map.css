@@ -1,4 +1,56 @@
-#map {
+body {
+    display: flex;
     height: 100vh;
     width: 100%;
+    flex-direction: column;
+}
+
+/* header {
+    position: relative !important;
+    height: 3rem !important;
+} */
+
+#content {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    flex: 2;
+}
+
+#popup {
+    background-color: var(--almostwhite);
+    box-shadow: var(--shadow-s);
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    transition: (--transition);
+    height: 100%;
+    box-sizing: border-box;
+/*     padding: 6rem 4rem; */
+    flex: 1;
+    max-width: 50rem;
+}
+
+#popupContent {
+    box-sizing: border-box;
+    padding: 8rem 4rem;
+}
+
+#popup.closed {
+    display: none;
+}
+
+
+@media only screen and (min-width: 768px) {
+   #map {
+     
+   }
+
 }
