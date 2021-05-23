@@ -280,21 +280,29 @@
 
 }
 
-.signAndFigure {
+#signAndFigureContainer {
     position: absolute;
-    width: 20.6rem;
-    height: 15.3rem;
-    background-image: url('img/hahmoJaKyltti.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    top: -15.3rem;
-    opacity: .1;
-    display: none;
+    width: 100%;
+    max-width: 80rem;
+    height: 20.3rem;
+    margin-left: auto;
+    margin-right: auto;
+    top: -20.3rem;
+    overflow: hidden;
+    z-index: 1;
+    overflow: hidden;
 }
 
-#actualContentContainer .signAndFigure {
+#signAndFigure {
+    background-image: url('img/hahmoJaKyltti.svg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
     display: none;
+    width: 25.9rem;
+    height: 20.3rem;
+    position: absolute;
+    right: 0%;
 }
 
 #wrapper {
@@ -428,22 +436,10 @@
     #ouluRow {
         padding-top: 5rem;
     }
-
-    #buttonBox .signAndFigure {
-        display: none;
-    }
-
-    #actualContentContainer .signAndFigure {
+    
+    #signAndFigure {
         display: block;
-    }
-
-    .signAndFigure {
-        opacity: 1;
-        width: 25.9rem;
-        height: 20.3rem;
-        right: -2rem;
-        top: -20.3rem;
-
+        
     }
 
     #actualContentContainer .textBox {
@@ -458,6 +454,17 @@
 
     #firstWave {
         display: block;
+    }
+
+    #infoPopup {
+        height: 90%;
+        border-radius: .6rem;
+    }
+
+    #bannerBox {
+        margin: 0rem 4rem 1rem 4rem;
+        border-radius: .6rem;
+        flex-direction: row;
     }
 
 }

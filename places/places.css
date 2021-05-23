@@ -192,3 +192,161 @@ body {
     border-color: darkgrey;
     background-color: transparent;
 }
+
+#overlay {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: none; /* change to display: block; to show info popup */
+}
+
+#infoPopup {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: var(--almostwhite);
+    max-width: 80rem;
+    height: 100%;
+    z-index: 100;
+    overflow: hidden;
+}
+
+#topbar {
+    width: 100%;
+    height: 7rem;
+    box-shadow: var(--shadow-s);
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    background-color: var(--almostwhite);
+    z-index: 1;
+}
+
+#titleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-left: 2rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#titleContainer #placeName {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: var(--color-tertiary);
+}
+
+#titleContainer #placeAddress {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.5);
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#exitButton {
+    width: 8rem;
+    background-color: transparent;
+    border: none;
+    transition: var(--transition);
+}
+
+
+#exitButton span {
+    color: var(--color-tertiary);
+    font-size: 2.8rem;
+}
+
+#exitButton:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+#popupContent {
+    width: 100%;
+    flex: 1;
+    overflow-y: scroll;
+}
+
+#popupBanner {
+    background-image: url('../img/moshpit.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#bannerBox {
+    background-color: rgba(112, 96, 133, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    color: var(--almostwhite);
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#shortDesc {
+    flex: 1;
+    min-width: 25rem;
+    margin: 2rem;
+}
+
+#showOnMapButton {
+    padding: 0 2.5rem;
+    height: 4rem;
+    background-color: transparent;
+    border: 1px solid var(--almostwhite);
+    border-radius: .6rem;
+    color: var(--almostwhite);
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: .1rem;
+    box-sizing: border-box;
+    transition: var(--transition);
+    white-space: nowrap;
+    font-size: 1.6rem;
+    margin: 2rem;
+}
+
+#showOnMapButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+#popupText {
+    padding: 4rem;
+}
+
+@media only screen and (min-width: 768px) {
+
+    #infoPopup {
+        height: 90%;
+        border-radius: .6rem;
+    }
+
+    #bannerBox {
+        margin: 0rem 4rem 1rem 4rem;
+        border-radius: .6rem;
+        flex-direction: row;
+    }
+
+}

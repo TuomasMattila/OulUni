@@ -257,7 +257,6 @@ header a:hover {
     box-sizing: border-box;
 }
 
-
 #wholeLogo {
     display: flex;
     flex-direction: row;
@@ -419,10 +418,11 @@ header.minimized #language ul {
     position: relative;
     box-sizing: border-box;
     padding-top: .6rem;
+    letter-spacing: .1rem;
 }
 
 #language a.active {
-    font-weight: bold;
+    font-weight: 600;
 }
 
 #language a.active:before {
@@ -430,7 +430,7 @@ header.minimized #language ul {
     position: absolute;
     height: 3rem;
     width: 80%;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.1);
     margin: auto;
     left: 0;
     right: 0;
