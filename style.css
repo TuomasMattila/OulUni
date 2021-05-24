@@ -90,7 +90,7 @@ h4 {
 
 h5 {
     font-size: var(--font-l);
-    font-weight: 600;
+    font-weight: 800;
 }
 
 p {
@@ -115,7 +115,7 @@ html {
 
 body {
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
     min-height: -webkit-fill-available;
 }
 
@@ -173,7 +173,7 @@ a > button {
     font-size: 2.4rem;
     font-weight: 600;
     box-shadow: 0.0rem 0.3rem 1rem rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 
@@ -213,7 +213,9 @@ header {
     justify-content: center;
     align-items: center;
     transition: var(--transition);
+    transition-property: height, background-color, border-bottom, box-shadow;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
 }
 
 header.minimized {
@@ -221,6 +223,14 @@ header.minimized {
     background-color: var(--color-tertiary);
     border-bottom: 0px solid rgba(0, 0, 0, 0.1);
     box-shadow: var(--shadow-s);
+}
+
+header a {
+    transition: var(--transition);
+}
+
+header a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 #headerContent {
@@ -242,21 +252,25 @@ header.minimized {
     align-items: flex-end;
     flex-direction: row;
     width: fit-content;
-    margin-left: 2rem;
     font-size: 3.2rem;
     transition: var(--transition);
     box-sizing: border-box;
 }
 
-#logoContainer.minimized {
-   transform: scale(.8);
-    padding-bottom: 0rem;
-}
-
-#logoContainer a {
+#wholeLogo {
     display: flex;
     flex-direction: row;
-    text-decoration: none;
+    text-decoration: none;  
+    display: flex;
+    height: 60%;
+    box-sizing: border-box;
+    padding: 0 2rem;
+    align-items: flex-end;
+    transition: var(--transition);
+}
+
+header.minimized #wholeLogo {
+    height: 100%;
 }
 
 #logoContainer span {
@@ -270,6 +284,8 @@ header.minimized {
     background-color: var(--color-primary);
     border-radius: 2rem;
     position: relative;
+    box-sizing: border-box;
+    margin-bottom: 2.5rem;
 }
 
 
@@ -303,35 +319,44 @@ header.minimized {
     display: flex;
     height: 5rem;
     justify-content: center;
+    height: 100%;
+    align-items: flex-end;
 }
 
 #nav ul {
     display: flex;
-    justify-content: center;
-    width: auto;
+    justify-content: space-evenly;
+    width: 100%;
     flex-direction: row;
     list-style-type: none;
+    height: 60%;
+    transition: var(--transition);
+}
+
+header.minimized #nav ul {
+    height: 100%;
 }
 
 #nav li {
+    flex: 1;
     display: flex;
     height: auto;
     position: relative;
 }
 
 #nav a {
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
-    width: 5rem;
-    padding: 1.9rem 1rem 1rem 1rem;
     text-decoration: none;
     font-size: var(--font-s);
     position: relative;
     color: var(--almostwhite);
     letter-spacing: .1rem;
-}
-#nav a:hover {
-    background-color: rgba(0, 0, 0, 0.219);
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: .6rem;
 }
 
 #nav ul .active {
@@ -352,17 +377,28 @@ header.minimized {
 
 #language {
     display: none;
+    height: 100%;
+    align-items: flex-end;
 }
 
 #language ul {
     list-style-type: none;
     display: flex;
-    align-items: center;
     flex-direction: row;
     font-size: var(--font-xs);
+    height: 60%;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+
+header.minimized #language ul {
+    height: 100%;
 }
 
 #language li {
+    height: 100%;
+    box-sizing: border-box;
     display: flex;
     list-style-type: none;
     flex-direction: row;
@@ -371,24 +407,43 @@ header.minimized {
 
 
 #language a {
-    padding: 1.5rem 1rem;
-    display: block;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
     color: var(--almostwhite);
     text-decoration: none;
     white-space: nowrap;
+    padding: 0 2rem;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: .6rem;
+    letter-spacing: .1rem;
 }
 
-#language .active {
-    font-weight: bold;
+#language a.active {
+    font-weight: 600;
 }
 
-#language a:hover {
-   background-color: red;
+#language a.active:before {
+    content: '';
+    position: absolute;
+    height: 3rem;
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: auto;
+    left: 0;
+    right: 0;
+    border-radius: .6rem;
 }
+
 
 #language .spacer {
-    display: block;
+    display: flex;
+    height: 100%;
+    align-items: center;
     color: var(--almostwhite);
+    padding-top: .6rem;
 }
 
 
@@ -400,24 +455,29 @@ header.minimized {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     align-items: center;
+    position: relative;
 }
 
 footer {
     width: 100%;
     height: auto;
-    background-color: var(--color-secondary-darker);
+    background-color: var(--color-tertiary);
     display: flex;
     justify-content: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 #footerBox {
     display: flex;
-    width: 100%;
-    height: auto;
+    max-width: var(--tv);
+    min-height: 30rem;
     flex-direction: row;
     flex-wrap: wrap;
+    box-sizing: border-box;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 #footerBox .footerItem {
@@ -427,7 +487,22 @@ footer {
     color: var(--almostwhite);
     text-align: center;
     box-sizing: border-box;
-    padding: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+}
+
+#footerBox h5 {
+    padding: 2rem 0rem;
+}
+
+#footerBox a {
+    color: var(--color-primary);
+    box-sizing: border-box;
+}
+
+#footerBox p {
+    font-size: var(--font-xs);
 }
 
 @media only screen and (min-width: 768px) {
@@ -436,15 +511,12 @@ footer {
         flex-direction: row;
         justify-content: flex-end;
         flex: 1;
-        margin-right: 2rem;
+        height: 100%;    
     }
 
     #nav {
         flex: 1;
-    }
-
-    #nav a {
-        padding: 2rem 3rem;
+        justify-content: center;
     }
 
     :root {
@@ -452,7 +524,7 @@ footer {
         --font-xs: 1.4rem;
         --font-s: 1.6rem;
         --font-m: 1.8rem;
-        --font-l: 2.4rem;
+        --font-l: 1.8rem;
         --font-xl: 3.2rem;
         --font-2xl: 4.8rem;
         --font-3xl: 7.2rem;

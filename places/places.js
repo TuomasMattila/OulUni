@@ -1,11 +1,11 @@
 function toggleButton(elementId) {
     let btn = document.getElementById(elementId);
     let selector;
-    if(elementId != 'campuses-button') {
-        selector = '.' + elementId.replace("s-button", "-box"); // EI TOIMI CAMPUSES-BUTTON:lle
-    }
-    else {
-        selector = '.' + elementId.replace("es-button", "-box"); 
+    console.log(elementId);
+    if(elementId == "campuses-button") {
+        selector = '.' + elementId.replace("es-button", "-box");
+    } else {
+        selector = '.' + elementId.replace("s-button", "-box");
     }
     let elements = document.querySelectorAll(selector);
     if(btn.innerHTML.includes("✓")) {
@@ -47,4 +47,10 @@ function showElements(elements) {
     elements.forEach(function(box) {
         box.style.display = 'block';
     }); 
+}
+
+function search() {
+    const results = document.querySelector('#categories');
+    console.log(results);
+    results.scrollIntoView({behavior: "smooth", block: "start"});
 }

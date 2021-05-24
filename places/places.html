@@ -14,10 +14,55 @@
     </head>
 
     <body>
+
+        <div id="overlay">
+            <div id="infoPopup">
+                <div id="topbar">
+                    <div id="titleContainer">
+                        <span id="placeName">Paikan nimi</span>
+                        <span id="placeAddress">Osoite 10, 90530 Oulu</span>
+                    </div>
+                    <button id="exitButton" onclick="console.log('exit button')"><span class="material-icons">close</span></button>
+                </div>
+    
+                <div id="popupContent">
+    
+                    <div id="popupBanner">
+                        <div id="bannerBox">
+                            <div id="shortDesc">
+                                <p>Lyhyt kuvaus paikasta. Lyhyt kuvaus paikasta. Lyhyt kuvaus paikasta. Lyhyt kuvaus paikasta. Lyhyt kuvaus paikasta.</p>
+                            </div>
+                            <button id="showOnMapButton">SHOW ON MAP</button>
+                        </div>
+                    </div>
+    
+                    <div id="popupText">
+                        <p>Vitae aperiam consequatur neque facere, eum architecto placeat, at ab saepe commodi est ullam atque
+                            fugiat cumque odit consectetur suscipit ex aspernatur! Lorem ipsum dolor sit amet consectetur,
+                            adipisicing elit. Eligendi fugit quo autem veritatis, obcaecati earum optio magni molestiae illo
+                            debitis, esse neque blanditiis. Accusamus eaque quae doloribus doloremque vel minima? Lorem ipsum
+                            dolor sit amet consectetur adipisicing elit. Aspernatur temporibus iusto nobis facere error cum
+                            voluptates dignissimos nemo aliquid eius non quae, accusamus esse officiis. Dignissimos repellendus
+                            aperiam perspiciatis eum!</p>
+            
+                        <p>Vitae aperiam consequatur neque facere, eum architecto placeat, at ab saepe commodi est ullam atque
+                            fugiat cumque odit consectetur suscipit ex aspernatur! Lorem ipsum dolor sit amet consectetur,
+                            adipisicing elit. Eligendi fugit quo autem veritatis, obcaecati earum optio magni molestiae illo
+                            debitis, esse neque blanditiis. Accusamus eaque quae doloribus doloremque vel minima? Lorem ipsum
+                            dolor sit amet consectetur adipisicing elit. Aspernatur temporibus iusto nobis facere error cum
+                            voluptates dignissimos nemo aliquid eius non quae, accusamus esse officiis. Dignissimos repellendus
+                            aperiam perspiciatis eum!</p>
+                    </div>
+                    
+                </div>
+    
+            </div>
+        </div>
+
         <header class="navigation-bar">
             <div id="headerContent">
                 <div id="logoContainer">
-                    <a href="#">
+                    <a href="../index.html" id="wholeLogo">
                         <div class="logo"></div>
                         <span>Oul</span>
                         <span>Uni</span>
@@ -57,7 +102,7 @@
                 <div id="search-bar">
                     <form action="#">
                         <input id="search-box" placeholder="Enter keywords">
-                        <input id="search-button" type="button" value="Search">
+                        <input id="search-button" type="button" value="Search" onclick="search()">
                     </form>
                 </div>  
                 
@@ -146,6 +191,24 @@
             </div>
 
         </div>
+
+        <footer>
+            <div id="footerBox">
+                <div class="footerItem">
+                    <h5>About</h5>
+                    <p>OulUni is a tool that helps new students find interesting places in the beautiful city of Oulu</p>
+                </div>
+                <div class="footerItem">
+                    <h5>Creators</h5>
+                    <p>Developed with ❤ by a group of students from the University of Oulu</p>
+                </div>
+                <div class="footerItem">
+                    <h5>Contact</h5>
+                    <p>Give feedback by sending email to <a href="mailto:feedback@ouluni.fi">feedback@ouluni.fi</a> </p>
+                </div>
+
+            </div>
+        </footer>
 
     </body>
 

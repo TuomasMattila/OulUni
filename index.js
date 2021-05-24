@@ -25,7 +25,7 @@ listOfAdjectives.push(new AdjectiveText('Sensual', '#D37F98'));
 listOfAdjectives.push(new AdjectiveText('Wild', '#AE7FD3'));
 listOfAdjectives.push(new AdjectiveText('Extra-<br>Terrestrial', '#7FD387', 'var(--font-2xl)'));
 
-let listIndex = 0;
+let listIndex = 2;
 let previousIndex = 0;
 let adjective = document.querySelector('#adjective');
 let adjectiveText = document.querySelector('#adjective > h2');
@@ -56,6 +56,7 @@ function changeAdjective() {
         adjective.classList.remove('hide');
         adjectiveText.classList.add('anim');
         adjective.classList.remove('anim');
+        
         //listIndex = getRandomInt(listLength);
         listIndex += 1;
 
@@ -64,6 +65,14 @@ function changeAdjective() {
         }
 
         adjectiveText.innerHTML = `${listOfAdjectives[listIndex].text}`;
+
+        if (adjectiveText.innerHTML == 'Drunker') {
+            adjective.classList.add('drunker');
+        } else {
+            adjective.classList.remove('drunker');
+        }
+
+
         adjectiveText.style.color = `${listOfAdjectives[listIndex].color}`;
         adjectiveText.style.fontSize = `${listOfAdjectives[listIndex].fontSize}`;
 

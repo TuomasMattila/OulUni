@@ -25,12 +25,7 @@ function adjustHeader() {
 adjustHeader();
 
 let map;
-const kaijonkipsaLoc = {lat: 65.059605, lng: 25.491829};
-const koskelanloistoLoc = {lat: 65.057279, lng: 25.401728};
-const teekkaritaloLoc = {lat: 65.063879, lng: 25.484157};
-const toripoliisiLoc = {lat: 65.013306, lng: 25.464720};
 const yliopistoLoc = { lat: 65.059316, lng: 25.466266};
-
 
 //  Maps stuff
 //
@@ -43,15 +38,13 @@ function initMap() {
     gestureHandling: 'greedy'
   });
 
-  addMarkerWithWindow('Kaijon Kipsa', '../img/restaurants.svg', kaijonkipsaLoc, map);
-  addMarkerWithWindow('Koskelan loisto', '../img/attractions.svg', koskelanloistoLoc, map);
-  addMarkerWithWindow('Teekkaritalo', '../img/partyspots.svg', teekkaritaloLoc, map);
-  addMarkerWithWindow('Toripoliisi', '../img/attractions.svg', toripoliisiLoc, map);
-  addMarkerWithWindow('Yliopisto', '../img/campuses.svg', yliopistoLoc, map);
-  
+  addMarkerWithWindow('Yliopisto', yliopistoLoc, map);
+
+
 }
 
-function addMarkerWithWindow(name, image, coordinate, map) {
+function addMarkerWithWindow(name, coordinate, map) {
+  var image = '../img/attractions.svg';
   var marker = new google.maps.Marker({
     map: map,
     icon: image,
