@@ -25,17 +25,12 @@ function adjustHeader() {
 adjustHeader();
 
 let map;
-const kaijonKipsaLoc = {lat: 65.059605, lng: 25.491829};
-const koskelanLoistoLoc = {lat: 65.057279, lng: 25.401728};
+const kaijonkipsaLoc = {lat: 65.059605, lng: 25.491829};
+const koskelanloistoLoc = {lat: 65.057279, lng: 25.401728};
 const teekkaritaloLoc = {lat: 65.063879, lng: 25.484157};
 const toripoliisiLoc = {lat: 65.013306, lng: 25.464720};
 const yliopistoLoc = { lat: 65.059316, lng: 25.466266};
 
-const kaijonKipsaCont = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eligendi libero quas dolorem velit alias debitis. Officiis rem distinctio ipsam deleniti dicta fugit, excepturi veniam repudiandae voluptatum earum similique aliquam.';
-const koskelanLoistoCont = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eligendi libero quas dolorem velit alias debitis. Officiis rem distinctio ipsam deleniti dicta fugit, excepturi veniam repudiandae voluptatum earum similique aliquam.';
-const teekkaritaloCont = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eligendi libero quas dolorem velit alias debitis. Officiis rem distinctio ipsam deleniti dicta fugit, excepturi veniam repudiandae voluptatum earum similique aliquam.';
-const toripoliisiCont = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eligendi libero quas dolorem velit alias debitis. Officiis rem distinctio ipsam deleniti dicta fugit, excepturi veniam repudiandae voluptatum earum similique aliquam.';
-const yliopistoCont = 'A place to get a degree from';
 
 //  Maps stuff
 //
@@ -48,26 +43,25 @@ function initMap() {
     gestureHandling: 'greedy'
   });
 
-  addMarkerWithWindow('Kaijon Kipsa', kaijonKipsaCont, '../img/restaurants.svg', kaijonKipsaLoc, map);
-  addMarkerWithWindow('Koskelan loisto', koskelanLoistoCont, '../img/attractions.svg', koskelanLoistoLoc, map);
-  addMarkerWithWindow('Teekkaritalo', teekkaritaloCont, '../img/partyspots.svg', teekkaritaloLoc, map);
-  addMarkerWithWindow('Toripoliisi', toripoliisiCont, '../img/attractions.svg', toripoliisiLoc, map);
-  addMarkerWithWindow('Yliopisto', yliopistoCont, '../img/campuses.svg', yliopistoLoc, map);
+  addMarkerWithWindow('Kaijon Kipsa', '../img/restaurants.svg', kaijonkipsaLoc, map);
+  addMarkerWithWindow('Koskelan loisto', '../img/attractions.svg', koskelanloistoLoc, map);
+  addMarkerWithWindow('Teekkaritalo', '../img/partyspots.svg', teekkaritaloLoc, map);
+  addMarkerWithWindow('Toripoliisi', '../img/attractions.svg', toripoliisiLoc, map);
+  addMarkerWithWindow('Yliopisto', '../img/campuses.svg', yliopistoLoc, map);
   
 }
 
-function addMarkerWithWindow(name, content, image, coordinate, map) {
+function addMarkerWithWindow(name, image, coordinate, map) {
   var marker = new google.maps.Marker({
+    map: map,
+    icon: image,
     title: name,
-    content: content,   
-    icon: image,   
-    position: coordinate,
-    map: map
+    position: coordinate
   });
 
-  var popup = document.getElementById('popup');
-  var popupContent = document.getElementById('popupContent');
-  var popupContentText = `<h4>${name}</h4> <p>${content}</p> <button onclick="closePopup()">CLOSE</button>`;
+  const popup = document.getElementById('popup');
+  const popupContent = document.getElementById('popupContent');
+  const popupContentText = '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eligendi libero quas dolorem velit alias debitis. Officiis rem distinctio ipsam deleniti dicta fugit, excepturi veniam repudiandae voluptatum earum similique aliquam.</p><button onclick="closePopup()">CLOSE</button>';
 
 
  google.maps.event.addListener(marker, 'click', function(e) {
