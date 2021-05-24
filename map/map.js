@@ -108,17 +108,39 @@ function addMarkerWithWindow(name, image, content, icon, coordinate, map) {
 
   var popup = document.getElementById('popup');
   var popupText = document.getElementById('popupText');
-  if(image == null) {
+/*   if(image == null) {
     var popupContentText = `<h4>${name}</h4> <p>${content}</p> <button onclick="closePopup()">CLOSE</button>`;
   }
-  else {
-    var popupContentText = `<h4>${name}</h4> <img src=${image} width ="400" height = "300"> <p>${content}</p> <button onclick="closePopup()">CLOSE</button>`;
-  }
+  else { */
+    var popupContentText = `<div id="topbar">
+    <div id="titleContainer">
+        <span id="placeName">${name}</span>
+        <span id="placeAddress">Osoite 10, 90530 Oulu</span>
+    </div>
+    <button id="exitButton" onclick="closePopup()"><span class="material-icons">close</span></button>
+</div>
+
+<div id="popupContent">
+
+    <div id="popupBanner" style="background-image: url(${image});">
+        <div id="bannerBox">
+            <div id="shortDesc">
+                <p>Lyhyt kuvaus paikasta. Lyhyt kuvaus paikasta. Lyhyt kuvaus paikasta. Lyhyt kuvaus paikasta. Lyhyt kuvaus paikasta.</p>
+            </div>
+            <button id="showOnMapButton">NAVIGATE TO</button>
+        </div>
+    </div>
+
+    <div id="popupText">
+    <p>${content}</p>
+    </div>
+</div>`;
+/*   } */
 
  google.maps.event.addListener(marker, 'click', function(e) {
   console.log('open');
   map.panTo(marker.getPosition());
-  popupText.innerHTML = popupContentText;
+  popup.innerHTML = popupContentText;
   popup.classList.remove('closed');
  });
 }

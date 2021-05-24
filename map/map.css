@@ -15,7 +15,6 @@ body {
     flex: 1;
     display: flex;
     flex-direction: row;
-    background-color: red;
     align-items: flex-end;
 }
 
@@ -108,7 +107,6 @@ body {
 }
 
 #popupBanner {
-    background-image: url('../img/moshpit.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
