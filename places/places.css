@@ -353,10 +353,4 @@ body {
         border-radius: .6rem;
     }
 
-    #bannerBox {
-        margin: 0rem 4rem 1rem 4rem;
-        border-radius: .6rem;
-        flex-direction: row;
-    }
-
 }

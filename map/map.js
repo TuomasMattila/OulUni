@@ -53,21 +53,21 @@ function addMarkerWithWindow(name, coordinate, map) {
   });
 
   const popup = document.getElementById('popup');
-  const popupContent = document.getElementById('popupContent');
-  const popupContentText = '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eligendi libero quas dolorem velit alias debitis. Officiis rem distinctio ipsam deleniti dicta fugit, excepturi veniam repudiandae voluptatum earum similique aliquam.</p><button onclick="closePopup()">CLOSE</button>';
+  const popupText = document.getElementById('popupText');
+  const popupContentText = '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eligendi libero quas dolorem velit alias debitis. Officiis rem distinctio ipsam deleniti dicta fugit, excepturi veniam repudiandae voluptatum earum similique aliquam.</p>';
 
 
  google.maps.event.addListener(marker, 'click', function(e) {
   console.log('open');
   map.panTo(marker.getPosition());
-  popupContent.innerHTML = popupContentText;
+  popupText.innerHTML = popupContentText;
   popup.classList.remove('closed');
  });
 }
 
 function closePopup() {
-  let popupContent = document.getElementById('popupContent');
-  popupContent.innerHTML = "";
+  let popupText = document.getElementById('popupText');
+  popupText.innerHTML = "";
   const popup = document.getElementById('popup');
   popup.classList.add('closed');
 }
