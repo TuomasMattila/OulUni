@@ -1,6 +1,36 @@
-let map;
+// For adjusting the header so that it doesn't shift without scrollwheel on the map page
+function adjustHeader() {
 
+  // Creating invisible container
+  const outer = document.createElement('div');
+  outer.style.visibility = 'hidden';
+  outer.style.overflow = 'scroll'; // forcing scrollbar to appear
+  outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
+  document.body.appendChild(outer);
+
+  // Creating inner element and placing it in the container
+  const inner = document.createElement('div');
+  outer.appendChild(inner);
+
+  // Calculating difference between container's full width and the child width
+  const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
+
+  // Removing temporary elements from the DOM
+  outer.parentNode.removeChild(outer);
+
+  const header = document.querySelector('header');
+  header.style.paddingRight = `${scrollbarWidth}px`;
+}
+
+adjustHeader();
+
+let map;
+const kaijonkipsaLoc = {lat: 65.059605, lng: 25.491829};
+const koskelanloistoLoc = {lat: 65.057279, lng: 25.401728};
+const teekkaritaloLoc = {lat: 65.063879, lng: 25.484157};
+const toripoliisiLoc = {lat: 65.013306, lng: 25.464720};
 const yliopistoLoc = { lat: 65.059316, lng: 25.466266};
+
 
 //  Maps stuff
 //
@@ -8,36 +38,45 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     mapId: '4c04de1daa64bb31',
     center: { lat: 65.05637, lng: 25.468308 },
-    zoom: 15,
+    zoom: 12,
     disableDefaultUI: true,
     gestureHandling: 'greedy'
   });
-  
-  const svgMarker = {
-    path:
-      "M10.453 14.016l6.563-6.609-1.406-1.406-5.156 5.203-2.063-2.109-1.406 1.406zM12 2.016q2.906 0 4.945 2.039t2.039 4.945q0 1.453-0.727 3.328t-1.758 3.516-2.039 3.070-1.711 2.273l-0.75 0.797q-0.281-0.328-0.75-0.867t-1.688-2.156-2.133-3.141-1.664-3.445-0.75-3.375q0-2.906 2.039-4.945t4.945-2.039z",
-    fillColor: "green",
-    fillOpacity: 0.5,
-    strokeWeight: 1,
-    rotation: 0,
-    scale: 3,
-    anchor: new google.maps.Point(15, 30),
-  };
 
-  // The marker, positioned at Uluru
-  const marker = new google.maps.Marker({
-    position: yliopistoLoc,
+  addMarkerWithWindow('Kaijon Kipsa', '../img/restaurants.svg', kaijonkipsaLoc, map);
+  addMarkerWithWindow('Koskelan loisto', '../img/attractions.svg', koskelanloistoLoc, map);
+  addMarkerWithWindow('Teekkaritalo', '../img/partyspots.svg', teekkaritaloLoc, map);
+  addMarkerWithWindow('Toripoliisi', '../img/attractions.svg', toripoliisiLoc, map);
+  addMarkerWithWindow('Yliopisto', '../img/campuses.svg', yliopistoLoc, map);
+  
+}
+
+function addMarkerWithWindow(name, image, coordinate, map) {
+  var marker = new google.maps.Marker({
     map: map,
-    label: {
-      text : "Oulun yliopisto",
-      fontSize: "14pt",
-      color: "white",
-      background: "black"
-    },
-    fontSize: "24px",
-    animation: google.maps.Animation.DROP,
-    icon: svgMarker
+    icon: image,
+    title: name,
+    position: coordinate
   });
+
+  const popup = document.getElementById('popup');
+  const popupContent = document.getElementById('popupContent');
+  const popupContentText = '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eligendi libero quas dolorem velit alias debitis. Officiis rem distinctio ipsam deleniti dicta fugit, excepturi veniam repudiandae voluptatum earum similique aliquam.</p><button onclick="closePopup()">CLOSE</button>';
+
+
+ google.maps.event.addListener(marker, 'click', function(e) {
+  console.log('open');
+  map.panTo(marker.getPosition());
+  popupContent.innerHTML = popupContentText;
+  popup.classList.remove('closed');
+ });
+}
+
+function closePopup() {
+  let popupContent = document.getElementById('popupContent');
+  popupContent.innerHTML = "";
+  const popup = document.getElementById('popup');
+  popup.classList.add('closed');
 }
 
 
