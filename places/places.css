@@ -173,12 +173,18 @@ body {
     border-color: rgb(80, 170, 255);
 }
 
+#result-texts {
+    width: 500px;
+}
+
 #result-texts > h5 {
     color: black;
 }
 
-#result-texts > p{
+#result-texts > p {
     color: darkgrey;
+    line-height: 1.5;
+    margin-top: 5px;
 }
 
 .view-button {
@@ -191,6 +197,10 @@ body {
     border-style: solid;
     border-color: darkgrey;
     background-color: transparent;
+}
+
+.view-button:hover {
+    cursor: pointer;
 }
 
 #overlay {
