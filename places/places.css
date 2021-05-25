@@ -185,12 +185,12 @@ body {
 }
 
 #result-texts > p {
-    color: darkgrey;
+    color: rgb(150, 150, 150);
     line-height: 1.5;
     margin-top: 5px;
 }
 
-.view-button {
+#view-button {
     align-self: center;
     height: 50px;
     width: 110px;
@@ -202,7 +202,7 @@ body {
     background-color: transparent;
 }
 
-.view-button:hover {
+#view-button:hover {
     cursor: pointer;
 }
 
