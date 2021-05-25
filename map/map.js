@@ -24,7 +24,8 @@ function adjustHeader() {
 
 adjustHeader();
 
-let map;
+let map, myLocation;
+
 const apinapatsasLoc = {lat: 65.061260, lng: 25.480190};
 const hoyhtyanGrilliLoc = {lat: 64.997230, lng: 25.487076};
 const laakisLoc = {lat: 65.008626, lng: 25.521646};
@@ -84,6 +85,34 @@ function initMap() {
     disableDefaultUI: true,
     gestureHandling: 'greedy'
   });
+
+  myLocation = new google.maps.InfoWindow();
+  const locationButton = document.createElement("button");
+  locationButton.textContent = "My location";
+  locationButton.classList.add("custom-map-control-button");
+  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(locationButton);
+  locationButton.addEventListener("click", () => {
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          myLocation.setPosition(pos);
+          myLocation.setContent("Your current location");
+          myLocation.open(map);
+        },
+        () => {
+          handleLocationError(true, myLocation, map.getCenter());
+        }
+      );
+    }
+    else {
+      handleLocationError(false, myLocation, map.getCenter());
+    }
+  });
+
 
   addMarkerWithWindow('Apinapatsas', '../img/tiedonjano.jpg', apinapatsasCont, '../img/attractions.svg', apinapatsasLoc, map);
   addMarkerWithWindow('Höyhtyän grilli', '../img/hoyhtyanGrilli.jpg', hoyhtyanGrilliCont, '../img/restaurants.svg', hoyhtyanGrilliLoc, map);
@@ -152,5 +181,12 @@ function closePopup() {
   popup.classList.add('closed');
 }
 
-
-
+function handleLocationError(browserHasGeolocation, myLocation, pos) {
+  myLocation.setPosition(pos);
+  myLocation.setContent(
+    browserHasGeolocation
+      ? "Error: The Geolocation service failed."
+      : "Error Your browser doesn't support geolocation."
+  );
+  myLocation.open(map);
+}
