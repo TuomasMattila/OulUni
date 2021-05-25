@@ -191,7 +191,12 @@ function addMarkerWithWindow(name, image, content, icon, coordinate, map) {
     console.log('open');
     map.panTo(marker.getPosition());
     popup.innerHTML = popupContentText;
-    popup.classList.remove('closed');
+    popup.classList.add('open');
+
+    if (map.getZoom() < 15) {
+      map.setZoom(15);
+    }
+
   });
 }
 
@@ -199,7 +204,7 @@ function closePopup() {
   let popupText = document.getElementById('popupText');
   popupText.innerHTML = "";
   const popup = document.getElementById('popup');
-  popup.classList.add('closed');
+  popup.classList.remove('open');
 }
 
 function handleLocationError(browserHasGeolocation, myLocation, pos) {
