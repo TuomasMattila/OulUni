@@ -87,13 +87,14 @@ function initMap() {
 
   addMarkerWithWindow('Teekkaritalo', '../img/teekTal.jpg', teekkaritaloCont, '../img/mapIcons/teekkaritalo.svg', teekkaritaloLoc, map);
   addMarkerWithWindow('Toripolliisi', '../img/torpo.jpg', toripolliisiCont, '../img/mapIcons/toripolliisi.svg', toripolliisiLoc, map);
+  addMarkerWithWindow('Paska Kaupunni', '../img/paskaKaup.jpg', paskaKaupunniCont, '../img/mapIcons/paskakaupunni.svg', paskaKaupunniLoc, map);
+  addMarkerWithWindow('Apinapatsas', '../img/tiedonjano.jpg', apinapatsasCont, '../img/mapIcons/apinapatsas.svg', apinapatsasLoc, map);
 /* 
-  addMarkerWithWindow('Apinapatsas', '../img/tiedonjano.jpg', apinapatsasCont, '../img/attractions.svg', apinapatsasLoc, map);
+  
   addMarkerWithWindow('Höyhtyän grilli', '../img/hoyhtyanGrilli.jpg', hoyhtyanGrilliCont, '../img/restaurants.svg', hoyhtyanGrilliLoc, map);
   addMarkerWithWindow('Lääketieteellinen Tiedekunta', '../img/konKam.jpg', laakisCont, '../img/campuses.svg', laakisLoc, map);
   addMarkerWithWindow('Kauppuri 5', null, kauppuri5Cont, '../img/restaurants.svg', kauppuri5Loc, map);
   addMarkerWithWindow('Kontinkankaan kampus (AMK)', null, kontinkangasAMKCont, '../img/campuses.svg', kontinkangasAMKLoc, map);
-  addMarkerWithWindow('Paska Kaupunni', '../img/paskaKaup.jpg', paskaKaupunniCont, '../img/attractions.svg', paskaKaupunniLoc, map);
   addMarkerWithWindow('Yliopisto', '../img/yliopisto.jpg', yliopistoCont, '../img/campuses.svg', yliopistoLoc, map); */
 
   var myoverlay = new google.maps.OverlayView();
@@ -110,7 +111,8 @@ function addMarkerWithWindow(name, image, content, icon, coordinate, map) {
     content: content,
     icon: {
       url: icon, // url
-      scale: .5
+      size: new google.maps.Size(162.5, 45),
+      scaledSize: new google.maps.Size(162.5, 45),
     },
     position: coordinate,
     map: map,
