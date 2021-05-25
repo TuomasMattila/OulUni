@@ -54,3 +54,12 @@ function search() {
     console.log(results);
     results.scrollIntoView({behavior: "smooth", block: "start"});
 }
+
+function initPopups() {
+
+}
+
+function openPopup() {
+    console.log("Initiated openPopup() -function");
+
+}
