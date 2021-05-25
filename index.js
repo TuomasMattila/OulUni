@@ -110,4 +110,9 @@ let nextWidth = adjectiveText.offsetWidth;
 adjective.style.width = `${nextWidth}px`;
 
 
+function moveLine() {
+    let line = querySelector('nav .active');
+}
+
+
 
