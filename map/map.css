@@ -12,6 +12,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    overflow: hidden;
 }
 
 #map {
@@ -188,20 +189,101 @@ body {
 }
 
 #actionsContainer {
+    z-index: 99;
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    user-select: none;
+    justify-content: center;
+    pointer-events: none;
+}
+
+#filterAction {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+}
+
+.filterboxToggleLabel input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+#showFiltersButton {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--color-tertiary);
+    color: var(--almostwhite);
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    width: 20rem;
-    height: 20rem;
+    transition: var(--transition);
+    text-transform: uppercase;
+    pointer-events: visible;
+}
+
+.filterboxToggleLabel input:checked ~ #showFiltersButton {
+    border-radius: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.438);
+}
+
+#arrow {
+    transition: var(--transition);
+}
+
+.filterboxToggleLabel input:checked ~ #showFiltersButton #arrow {
+    transform: rotate(180deg);
+}
+
+#filtersContainer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+    height: auto;
     background-color: var(--almostwhite);
     position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 99;
-    box-shadow: var(--shadow-s);
-    user-select: none;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    padding-bottom: 8.5rem;
+    border-radius: 1.4rem;
+    transition: all 300ms ease-out;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    bottom: -20rem;
+    transform: scale(.5);
+}
+
+#filtersContainer.open {
+    opacity: 1;
+    pointer-events: visible;
+    bottom: 0rem;
+    transform: scale(1);
+}
+
+#filtersTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-tertiary);
 }
 
 .filterLabel input {
@@ -222,7 +304,7 @@ body {
     align-items: center;
     gap: 1rem;
     height: 2rem;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.0);
     font-family: var(--fontBasic);
     font-size: 1.4rem;
     font-weight: 500;
@@ -232,6 +314,7 @@ body {
     color: rgba(0, 0, 0, 0.7);
     position: relative;
     transition: all 100ms linear;
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .filterToggle .material-icons {
@@ -256,6 +339,7 @@ body {
 .filterLabel input:checked ~ .filterToggle {
     background-color:var(--restaurants-color);
     color: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.0);
 }
 
 .filterLabel input:checked ~ .filterToggle .checkmark {
@@ -271,6 +355,14 @@ body {
     background-color: var(--partyspots-color);
 }
 
+.filterLabel input:checked ~ #clubsAndBarsToggle {
+    background-color: var(--clubs-color);
+}
+
+.filterLabel input:checked ~ #campusesToggle {
+    background-color: var(--campuses-color);
+}
+
 @media only screen and (min-width: 768px) {
    #popup {
        position: relative;
@@ -281,8 +373,24 @@ body {
    }
 
    #popup.open {
-    width: 40rem;
-    flex-basis: auto;
-}
+        width: 40rem;
+        flex-basis: auto;
+    }
 
 }
+
+@media only screen and (min-width: 468px) {
+    #filterAction {
+        width: 22rem;
+    }
+
+    #actionsContainer {
+        padding: 1rem;
+        justify-content: flex-end;
+    }
+
+    #showFiltersButton {
+        border-radius: 1.4rem;
+    }
+ 
+ }

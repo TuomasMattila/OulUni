@@ -25,7 +25,7 @@ listOfAdjectives.push(new AdjectiveText('Sensual', '#D37F98'));
 listOfAdjectives.push(new AdjectiveText('Wild', '#AE7FD3'));
 listOfAdjectives.push(new AdjectiveText('Extra-<br>Terrestrial', '#7FD387', 'var(--font-2xl)'));
 
-let listIndex = 2;
+let listIndex = 0;
 let previousIndex = 0;
 let adjective = document.querySelector('#adjective');
 let adjectiveText = document.querySelector('#adjective > h2');

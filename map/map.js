@@ -305,3 +305,19 @@ console.log(filterButtons);
 filterButtons.forEach(element => {
   element.addEventListener('click', filter);
 });
+
+function toggleFilters() {
+  const input = document.querySelector('.filterboxToggleLabel input');
+
+  const filterbox = document.querySelector('#filtersContainer');
+  const filtersToggleText = document.querySelector('#showFiltersText');
+
+  if (input.checked) {
+    filterbox.classList.add('open');
+    filtersToggleText.innerHTML = 'Hide Filters';
+  } else {
+    filterbox.classList.remove('open');
+    filtersToggleText.innerHTML = 'Show Filters';
+  }
+  
+}

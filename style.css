@@ -30,6 +30,8 @@
     --attractions-color: #CEC090;
     --restaurants-color: #D37F7F;
     --partyspots-color: #7FD3B0;
+    --clubs-color: #C77FD3;
+    --campuses-color: #50aaff;
 
 
     /* Font sizes */
@@ -181,12 +183,12 @@ a > button {
     font-weight: 600;
     box-shadow: 0.0rem 0.3rem 1rem rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    gap: 1rem;
 }
 
 
 .button.buttonBig .material-icons {
-    font-size: var(--font-xl);
-    margin-left: 3rem;
+    font-size: 3.2rem;
 }
 
 .button.buttonSmallHollow {
