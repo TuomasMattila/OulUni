@@ -27,6 +27,10 @@
     --lightergrey: #e2e2e2;
     --almostwhite: #F9F9F9;
 
+    --attractions-color: #CEC090;
+    --restaurants-color: #D37F7F;
+    --partyspots-color: #7FD3B0;
+
 
     /* Font sizes */
     --font-xxs: 1.2rem;
@@ -55,6 +59,9 @@
 
     --header-height: 9rem;
     --app-height: 1vh;
+
+    --fontStylish: 'Raleway', sans-serif;
+    --fontBasic: Arial, Helvetica, sans-serif;;
     
 }
 
@@ -95,12 +102,12 @@ h5 {
 
 p {
     font-size: 1.6rem;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--fontBasic);
     line-height: 2;
 }
 
 * {
-    font-family: 'Raleway', sans-serif;
+    font-family: var(--fontStylish);
     padding: 0;
     margin: 0;
 }

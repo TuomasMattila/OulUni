@@ -23,7 +23,6 @@ body {
 #popup {
     background-color: var(--almostwhite);
 /*     box-shadow: var(--shadow-s); */
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
     z-index: 100;
     bottom: 0;
     height: 100vh;
@@ -31,16 +30,38 @@ body {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    position: relative;
-    transition: width 100ms linear;
+    align-items: center;
+    position: absolute;
+    transition: width 200ms ease-out;
+    overflow: hidden;
 /*     resize: horizontal;
     overflow: auto; */
-    overflow: hidden;
 }
 
 #popup.open {
-    width: 40rem;
+    width: 100%;
     flex-basis: 100%;
+}
+
+#popupInside {
+    min-width: 40rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#popup::after {
+    position: absolute;
+    content: '';
+    background-color: var(--almostwhite);
+    height: 100%;
+    width: 100%;
+    transition: background-color 400ms ease-out;
+    pointer-events: none;
+}
+
+#popup.open:after {
+    background-color: transparent;
 }
 
 #topbar {
@@ -63,10 +84,11 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+    gap: .5rem;
 }
 
 #titleContainer #placeName {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -74,7 +96,7 @@ body {
 }
 
 #titleContainer #placeAddress {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.5);
     text-overflow: ellipsis;
@@ -165,11 +187,97 @@ body {
     padding-bottom: 8rem;
 }
 
+#actionsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 20rem;
+    height: 20rem;
+    background-color: var(--almostwhite);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+    box-shadow: var(--shadow-s);
+    user-select: none;
+}
+
+.filterLabel input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+.filterToggle:hover {
+    cursor: pointer;
+}
+
+.filterToggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 2rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-family: var(--fontBasic);
+    font-size: 1.4rem;
+    font-weight: 500;
+    box-sizing: border-box;
+    border-radius: 10.0rem;
+    padding: 1.5rem 1.0rem;
+    color: rgba(0, 0, 0, 0.7);
+    position: relative;
+    transition: all 100ms linear;
+}
+
+.filterToggle .material-icons {
+    font-size: 1.6rem;
+    position: relative;
+}
+.filterToggle .checkmark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.2rem;
+    width: 2.2rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10rem;
+    transition: all 100ms linear;
+    flex: 1;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.filterLabel input:checked ~ .filterToggle {
+    background-color:var(--restaurants-color);
+    color: rgba(0, 0, 0, 0.9);
+}
+
+.filterLabel input:checked ~ .filterToggle .checkmark {
+    width: 2.2rem;
+    opacity: 1;
+}
+
+.filterLabel input:checked ~ #attractionsToggle {
+    background-color: var(--attractions-color);
+}
+
+.filterLabel input:checked ~ #partyspotsToggle {
+    background-color: var(--partyspots-color);
+}
+
 @media only screen and (min-width: 768px) {
    #popup {
+       position: relative;
         z-index: 1;
         height: calc(100% - 5rem);
         bottom: 0;
+        border-right: 1px solid rgba(0, 0, 0, 0.2);
    }
 
    #popup.open {
