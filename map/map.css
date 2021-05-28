@@ -247,6 +247,9 @@ body {
     color: var(--color-tertiary);
     border: 0rem;
     max-width: 6rem;
+    padding: 2rem;
+    gap: 1rem;
+    justify-content: center;
 }
 
 #locationButton .title {
@@ -438,7 +441,7 @@ body {
     }
 
     #locationButton {
-        max-width: 24rem;
+        max-width: 20rem;
     }
 
     #locationButton .title {
