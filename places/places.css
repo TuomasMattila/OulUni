@@ -96,12 +96,12 @@ body {
     height: 1.5rem;
     margin-right: 5px;
 }
-/*
+
 .category-button:hover {
     color: white;
     transition-duration: .2s;
 }
-*/
+
 #attractions-button {
     border-radius: 50px;
     background-color: rgba(211, 192, 127, 1);

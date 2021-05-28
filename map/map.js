@@ -91,7 +91,7 @@ function initMap() {
   const markers = [
     ['Teekkaritalo', '../img/teekTal.jpg', teekkaritaloCont, '../img/mapIcons/teekkaritalo.svg', teekkaritaloLoc, map, 'partyspots'],
     ['Toripolliisi', '../img/torpo.jpg', toripolliisiCont, '../img/mapIcons/toripolliisi.svg', toripolliisiLoc, map, 'attractions'],
-    ['Paska Kaupunni', '../img/paskaKaup.jpg', paskaKaupunniCont, '../img/mapIcons/paskakaupunni.svg', paskaKaupunniLoc, map, 'attractions'],
+    ['Paska kaupunni', '../img/paskaKaup.jpg', paskaKaupunniCont, '../img/mapIcons/paskakaupunni.svg', paskaKaupunniLoc, map, 'attractions'],
     ['Apinapatsas', '../img/tiedonjano.jpg', apinapatsasCont, '../img/mapIcons/apinapatsas.svg', apinapatsasLoc, map, 'attractions'],
     ['Höyhtyän grilli', '../img/hoyhtyanGrilli.jpg', hoyhtyanGrilliCont, '../img/mapIcons/hoyhtyangrilli.svg', hoyhtyanGrilliLoc, map, 'restaurants'],
     ['Kauppuri 5', null, kauppuri5Cont, '../img/mapIcons/kauppuri5.svg', kauppuri5Loc, map, 'restaurants']
@@ -320,4 +320,17 @@ function toggleFilters() {
     filtersToggleText.innerHTML = 'Show Filters';
   }
   
+}
+
+/*'Show on map' -button related function*/
+function onLoad() {
+  if(sessionStorage.getItem('placeToBeShown') != null) {
+    for (let index = 0; index < markersOnMap.length; index++) {
+      if(markersOnMap[index].title == sessionStorage.getItem('placeToBeShown')) {
+        let place = markersOnMap[index];
+        new google.maps.event.trigger(place, 'click');
+      }
+    }
+    sessionStorage.removeItem('placeToBeShown');
+  }
 }
