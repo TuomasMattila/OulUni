@@ -67,11 +67,11 @@ const kontinkangasAMKDesc = 'Desc'
 const kontinkangasAMKCont = 'University of Applied Sciences campus at Kontinkangas.';
 
 const laakisDesc = 'The secondary campus in Oulu. Medical and biochemical from the university and some from applied sciences dwell here.';
-const laakisCont = 
+const laakisCont =
   'Specializes in helping people due to being semi attached to the city\'s hospital.';
-  
+
 const paskakaupunniDesc = 'How often does a piece of graphiti end up on a city\'s list of sights? Oulu is one of such and the spray in question is on the' +
-' wall of uusikatu 22 in central Oulu. ';
+  ' wall of uusikatu 22 in central Oulu. ';
 const paskaKaupunniCont = 'It is a stylized text that simply states: "Shitty city." It is inspired by a rocksong of the same name by Kauko Röyhkä who wrote ' +
   'the song to lovingly commemorate his youth in Oulu.' +
   'It appeared on the wall in the mid eighties and despite several dozens of attempts to remove it from then to now, it always seems ' +
@@ -84,7 +84,7 @@ const teekkaritaloDesc = 'The official clubspot of the engineering students or m
 const teekkaritaloCont = 'This partyhouse is often rented by other guilds too making it the premier place for student parties in Oulu. ' +
   'Has a great sauna because the idea of building it was concieved beer in hand in a sauna. ' +
   'Built by the teekkaris and by providing work for unemployed people in 1992.';
- 
+
 const toripolliisiDesc = 'Toripolliisi or in English: "Bobby at the market place" is possibly the most popular and quintessential landmark in Oulu.';
 const toripolliisiCont = 'It can be concidered an icon of the city itself. It is a bronze sculpture of a caricaturized policeman displayed at the edge of the market square.' +
   'Made via charity in 1985, unveiled in 1987. ' +
@@ -181,7 +181,7 @@ function addMarkerWithWindow(markerInfo) {
   let map = markerInfo[5];
   let category = markerInfo[6];
   let desc = markerInfo[7];
-  let address = markerInfo [8];
+  let address = markerInfo[8];
 
 
   let marker = new google.maps.Marker({
@@ -282,26 +282,42 @@ function filter() {
 
   console.log('should show ' + categoriesToShow.toString());
 
-  if (categoriesToShow.length == 0) {
-
-    for (let index = 0; index < markersOnMap.length; index++) {
-      markersOnMap[index].setVisible(true);
-    }
-
-  } else {
-
-    for (let index = 0; index < markersOnMap.length; index++) {
-      const marker = markersOnMap[index];
-      
-      if (categoriesToShow.includes(marker.category)) {
-        marker.setVisible(true);
-      } else {
-        marker.setVisible(false);
+  /*   if (categoriesToShow.length == 0) {
+  
+      for (let index = 0; index < markersOnMap.length; index++) {
+        markersOnMap[index].setVisible(true);
       }
-    }
+  
+    } else { */
 
+  for (let index = 0; index < markersOnMap.length; index++) {
+    const marker = markersOnMap[index];
+
+    if (categoriesToShow.includes(marker.category)) {
+      marker.setVisible(true);
+    } else {
+      marker.setVisible(false);
+    }
   }
 
+  /*   } */
+
+}
+
+function selectAllFilters() {
+  for (let index = 0; index < markersOnMap.length; index++) {
+    const marker = markersOnMap[index];
+    marker.setVisible(true);
+    filterButtons[index].checked = true;
+  }
+}
+
+function deselectAllFilters() {
+  for (let index = 0; index < markersOnMap.length; index++) {
+    const marker = markersOnMap[index];
+    marker.setVisible(false);
+    filterButtons[index].checked = false;
+  }
 }
 
 const filterButtons = document.querySelectorAll('.filterLabel > input');
@@ -324,14 +340,14 @@ function toggleFilters() {
     filterbox.classList.remove('open');
     filtersToggleText.innerHTML = 'Show Filters';
   }
-  
+
 }
 
 /*'Show on map' -button related function*/
 function onLoad() {
-  if(sessionStorage.getItem('placeToBeShown') != null) {
+  if (sessionStorage.getItem('placeToBeShown') != null) {
     for (let index = 0; index < markersOnMap.length; index++) {
-      if(markersOnMap[index].title == sessionStorage.getItem('placeToBeShown')) {
+      if (markersOnMap[index].title == sessionStorage.getItem('placeToBeShown')) {
         let place = markersOnMap[index];
         new google.maps.event.trigger(place, 'click');
       }

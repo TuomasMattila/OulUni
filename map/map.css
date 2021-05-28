@@ -311,7 +311,7 @@ body {
     box-sizing: border-box;
     border-radius: 10.0rem;
     padding: 1.5rem 1.0rem;
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(0, 0, 0, 0.9);
     position: relative;
     transition: all 100ms linear;
     border: 1px solid rgba(0, 0, 0, 0.3);
@@ -338,7 +338,6 @@ body {
 
 .filterLabel input:checked ~ .filterToggle {
     background-color:var(--restaurants-color);
-    color: rgba(0, 0, 0, 0.9);
     border: 1px solid rgba(0, 0, 0, 0.0);
 }
 
@@ -361,6 +360,12 @@ body {
 
 .filterLabel input:checked ~ #campusesToggle {
     background-color: var(--campuses-color);
+}
+
+#filterShortcuts {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 @media only screen and (min-width: 768px) {
