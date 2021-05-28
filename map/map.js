@@ -135,10 +135,8 @@ addMarkerWithWindow('Kontinkankaan kampus (AMK)', null, kontinkangasAMKCont, '..
 addMarkerWithWindow('Yliopisto', '../img/yliopisto.jpg', yliopistoCont, '../img/campuses.svg', yliopistoLoc, map); */
 
   myLocation = new google.maps.InfoWindow();
-  const locationButton = document.createElement("button");
-  locationButton.textContent = "My location";
+  const locationButton = document.querySelector('#locationButton');
   locationButton.classList.add("custom-map-control-button");
-  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(locationButton);
   locationButton.addEventListener("click", () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -304,28 +302,33 @@ function filter() {
 
 }
 
-function selectAllFilters() {
-  for (let index = 0; index < markersOnMap.length; index++) {
-    const marker = markersOnMap[index];
-    marker.setVisible(true);
-    filterButtons[index].checked = true;
-  }
-}
-
-function deselectAllFilters() {
-  for (let index = 0; index < markersOnMap.length; index++) {
-    const marker = markersOnMap[index];
-    marker.setVisible(false);
-    filterButtons[index].checked = false;
-  }
-}
-
 const filterButtons = document.querySelectorAll('.filterLabel > input');
 console.log(filterButtons);
 
 filterButtons.forEach(element => {
   element.addEventListener('click', filter);
 });
+
+function selectAllFilters() {
+  for (let index = 0; index < markersOnMap.length; index++) {
+    const marker = markersOnMap[index];
+    marker.setVisible(true);
+    
+  }
+  filterButtons.forEach(element => {
+    element.checked = true;
+  });
+}
+
+function deselectAllFilters() {
+  for (let index = 0; index < markersOnMap.length; index++) {
+    const marker = markersOnMap[index];
+    marker.setVisible(false);
+  }
+  filterButtons.forEach(element => {
+    element.checked = false;
+  });
+}
 
 function toggleFilters() {
   const input = document.querySelector('.filterboxToggleLabel input');
