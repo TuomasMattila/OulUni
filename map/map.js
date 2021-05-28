@@ -131,6 +131,8 @@ addMarkerWithWindow('Yliopisto', '../img/yliopisto.jpg', yliopistoCont, '../img/
           myLocation.setPosition(pos);
           myLocation.setContent("Your current location");
           myLocation.open(map);
+          map.setCenter(pos);
+          map.setZoom(12);
         },
         () => {
           handleLocationError(true, myLocation, map.getCenter());
