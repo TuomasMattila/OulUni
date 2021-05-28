@@ -326,3 +326,16 @@ function toggleFilters() {
   }
   
 }
+
+/*'Show on map' -button related function*/
+function onLoad() {
+  if(sessionStorage.getItem('placeToBeShown') != null) {
+    for (let index = 0; index < markersOnMap.length; index++) {
+      if(markersOnMap[index].title == sessionStorage.getItem('placeToBeShown')) {
+        let place = markersOnMap[index];
+        new google.maps.event.trigger(place, 'click');
+      }
+    }
+    sessionStorage.removeItem('placeToBeShown');
+  }
+}

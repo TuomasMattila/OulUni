@@ -1,7 +1,6 @@
 function toggleButton(elementId) {
     let btn = document.getElementById(elementId);
     let selector;
-    console.log(elementId);
     if(elementId == "campuses-button") {
         selector = '.' + elementId.replace("es-button", "-box");
     } else {
@@ -102,7 +101,7 @@ function openPopup(placeName, placeAddress, image) {
         case 'Mango':                           placeDescription = mangoDescription;
                                                 placeText = mangoText;
                                                 break;
-        case 'Paskakaupunni':                   placeDescription = paskakaupunniDescription;
+        case 'Paska kaupunni':                  placeDescription = paskakaupunniDescription;
                                                 placeText = paskakaupunniText;
                                                 break;
         case 'Sarkka':                          placeDescription = sarkkaDescription;
@@ -135,7 +134,7 @@ function openPopup(placeName, placeAddress, image) {
                     <div id="shortDesc">
                         <p>${placeDescription}</p>
                     </div>
-                    <button id="showOnMapButton">SHOW ON MAP</button>
+                    <button id="showOnMapButton" onclick="showOnMapButton('${placeName}')">SHOW ON MAP</button>
                 </div>
             </div>
 
@@ -152,4 +151,9 @@ function openPopup(placeName, placeAddress, image) {
 
 function closePopup() {
     overlay.style.display = 'none';
+}
+
+function showOnMapButton(placeName) {
+    sessionStorage.setItem('placeToBeShown', placeName);
+    window.location.href = "../map/map.html"
 }
