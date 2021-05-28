@@ -245,24 +245,6 @@ function handleLocationError(browserHasGeolocation, myLocation, pos) {
 
 function filter() {
 
-  let category = this.value;
-
-/* 
-  for (let index = 0; index < markersOnMap.length; index++) {
-    markerCand = markersOnMap[index];
-
-    if (markerCand.category == category) {
-      var isChecked = this.checked;
-
-      if (isChecked) {
-        markerCand.setVisible(true);
-      } else {
-        markerCand.setVisible(false);
-      }
-    }
-
-  } */
-
   let filters = document.querySelectorAll('.filterLabel > input');
   let categoriesToShow = [];
 
