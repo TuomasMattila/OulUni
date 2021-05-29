@@ -19,8 +19,8 @@
             <div id="infoPopup">
                 <div id="topbar">
                     <div id="titleContainer">
-                        <span id="placeName">Paikan nimi</span>
-                        <span id="placeAddress">Osoite 10, 90530 Oulu</span>
+                        <span id="placeName">Place's name</span>
+                        <span id="placeAddress">Place's address</span>
                     </div>
                     <button id="exitButton" onclick="closePopup()"><span class="material-icons">close</span></button>
                 </div>
@@ -30,20 +30,14 @@
                     <div id="popupBanner">
                         <div id="bannerBox">
                             <div id="shortDesc">
-                                <p>Lyhyt kuvaus paikasta. Lyhyt kuvaus paikasta. Lyhyt kuvaus paikasta. Lyhyt kuvaus paikasta. Lyhyt kuvaus paikasta.</p>
+                                <p>Short description of the place.</p>
                             </div>
                             <button id="showOnMapButton" onclick="showOnMapButton()">SHOW ON MAP</button>
                         </div>
                     </div>
     
                     <div id="popupText">
-                        <p>Vitae aperiam consequatur neque facere, eum architecto placeat, at ab saepe commodi est ullam atque
-                            fugiat cumque odit consectetur suscipit ex aspernatur! Lorem ipsum dolor sit amet consectetur,
-                            adipisicing elit. Eligendi fugit quo autem veritatis, obcaecati earum optio magni molestiae illo
-                            debitis, esse neque blanditiis. Accusamus eaque quae doloribus doloremque vel minima? Lorem ipsum
-                            dolor sit amet consectetur adipisicing elit. Aspernatur temporibus iusto nobis facere error cum
-                            voluptates dignissimos nemo aliquid eius non quae, accusamus esse officiis. Dignissimos repellendus
-                            aperiam perspiciatis eum!</p>
+                        <p>More information about the place.</p>
                     </div>
                     
                 </div>
@@ -148,9 +142,19 @@
                             <button id="view-button" onclick="openPopup('Kontinkangas', 'Kiviharjuntie 4, 90220 Oulu', '../img/konKam.jpg')">View</button>
                         </div> 
                     </div>
+                    <div class="club-box">
+                        <div class="result-box">
+                            <img src="../img/konKam.jpg" alt="pic">
+                            <div id="result-texts">
+                                <h5>KULuMA</h5>
+                                <p>Some drinking spots pride themselves for having a specialty, some trick or gimmick that separates them form the mass. Others offer a steady mix of all aspects, Jacks of all trades  if one may. To stand out among these unspecial kinds is rare.</p>
+                            </div>
+                            <button id="view-button" onclick="openPopup('KULuMA', 'Kauppurienkatu 5, 90100 Oulu', '../img/kuluma.jpg')">View</button>
+                        </div> 
+                    </div>
                     <div class="campus-box">
                         <div class="result-box">
-                            <img src="../img/yliopisto.jpg" alt="pic">
+                            <img src="../img/kuluma.jpg" alt="pic">
                             <div id="result-texts">
                                 <h5>Lipasto</h5>
                                 <p>Lipasto(the dresser) is the University of oulu's and the Oulu university of applied sciences shared primary campus at linnanmaa.</p>
@@ -160,12 +164,12 @@
                     </div>
                     <div class="club-box">
                         <div class="result-box">
-                            <img src="https://via.placeholder.com/100" alt="pic">
+                            <img src="../img/mallaskellari.jpg" alt="pic">
                             <div id="result-texts">
-                                <h5>Mango</h5>
-                                <p>Description of the place.</p>
+                                <h5>Mallaskellari</h5>
+                                <p>For bars and such there exist those of two kinds. Others for partying and others for spending an evening. Of this latter kind one of the best in Oulu is the Alehouse known as Mallaskellari.</p>
                             </div>
-                            <button id="view-button" onclick="openPopup('Mango', 'Saaristonkatu 16, 90100 Oulu', '')">View</button>
+                            <button id="view-button" onclick="openPopup('Mallaskellari', 'Kirkkokatu 17, 90100 Oulu', '../img/mallaskellari.jpg')">View</button>
                         </div> 
                     </div>
                     <div class="attraction-box">
@@ -176,16 +180,6 @@
                                 <p>How often does a piece of graphiti end up on a city's list of sights? Oulu is one of such and the spray in question is on the wall of uusikatu 22 in central Oulu.</p>
                             </div>
                             <button id="view-button" onclick="openPopup('Paska kaupunni', 'Uusikatu 22, 90100 Oulu', '../img/paskaKaup.jpg')">View</button>
-                        </div> 
-                    </div>
-                    <div class="club-box">
-                        <div class="result-box">
-                            <img src="https://via.placeholder.com/100" alt="pic">
-                            <div id="result-texts">
-                                <h5>Sarkka</h5>
-                                <p>Description of the place.</p>
-                            </div>
-                            <button id="view-button" onclick="openPopup('Sarkka', 'Hallituskatu 13-17, 90100 Oulu', '')">View</button>
                         </div> 
                     </div>
                     <div class="partyspot-box">
