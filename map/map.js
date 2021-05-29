@@ -226,7 +226,7 @@ function addMarkerWithWindow(markerInfo) {
               <div id="shortDesc">
                   <p>${desc}</p>
               </div>
-              <button id="showOnMapButton" onclick="navigateTo('Kauppurienkatu 5, 90100 Oulu')">NAVIGATE TO</button>
+              <button id="showOnMapButton" onclick="navigateTo('${address}')">NAVIGATE TO</button>
       </div>
 
       <div id="popupText">
