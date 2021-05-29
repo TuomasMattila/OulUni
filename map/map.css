@@ -163,8 +163,7 @@ body {
 }
 
 #showOnMapButton {
-    padding: 0 2.5rem;
-    height: 4rem;
+    padding: 1rem 2.0rem;
     background-color: transparent;
     border: 1px solid var(--almostwhite);
     border-radius: .6rem;
@@ -174,7 +173,7 @@ body {
     box-sizing: border-box;
     transition: var(--transition);
     white-space: nowrap;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin: 2rem;
 }
 
@@ -206,7 +205,6 @@ body {
     position: relative;
     flex: 1;
     height: 100%;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -235,6 +233,7 @@ body {
     text-transform: uppercase;
     pointer-events: visible;
     white-space: nowrap;
+    box-shadow: var(--shadow-s);
 }
 
 .mapBigButton:hover {
@@ -251,6 +250,7 @@ body {
     gap: 1rem;
     justify-content: center;
 }
+
 
 #locationButton .title {
     display: none;
@@ -276,7 +276,6 @@ body {
     align-items: flex-start;
     gap: 1rem;
     width: 100%;
-    height: auto;
     background-color: var(--almostwhite);
     position: fixed;
     left: 0;
@@ -290,8 +289,9 @@ body {
     opacity: 0;
     pointer-events: none;
     z-index: -1;
-    bottom: -20rem;
+    bottom: -10rem;
     transform: scale(.5);
+    overflow: hidden;
 }
 
 #filtersContainer.open {
