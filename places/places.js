@@ -92,9 +92,10 @@ function search() {
     if(keywords === ""){
         resultBoxes.forEach(function(b) {
             b.style.display = 'flex';
-            console.log('hmm');
         })
         countResults();
+        const results = document.querySelector('#categories');
+        results.scrollIntoView({behavior: "smooth", block: "start"});
         return;
     }
 
