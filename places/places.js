@@ -1,3 +1,24 @@
+function onLoad() {
+    countResults();
+}
+
+/*Counts the number that goes next to the 'Results' -heading*/
+function countResults() {
+    let number = 0;
+    let boxes = document.querySelectorAll('.result-box');
+    for(let i=0; i < boxes.length; i++) {
+        if(window.getComputedStyle(boxes[i]).display === 'flex') {
+            if(boxes[i].parentElement.style.display != 'none')
+                number++;
+        }
+    }
+    let resultsHeading = document.getElementById('results-heading');
+    resultsHeading.innerHTML = 'Results (' + number + ')';
+}
+
+
+
+/*Category buttons*/
 function toggleButton(elementId) {
     let btn = document.getElementById(elementId);
     let selector;
@@ -17,46 +38,93 @@ function toggleButton(elementId) {
         btn.style.color = "black";
         switch(elementId) {
             case "attractions-button":  btn.style.backgroundColor = "rgba(211, 192, 127, 1)";
-                                        showElements(elements);
                                         break;
             case "restaurants-button":  btn.style.backgroundColor = "rgba(211, 127, 127, 1)";
-                                        showElements(elements);
                                         break;
             case "partyspots-button":   btn.style.backgroundColor = "rgba(127, 211, 176, 1)";
-                                        showElements(elements);
                                         break;
             case "clubs-button":        btn.style.backgroundColor = "rgba(199, 127, 211, 1)";
-                                        showElements(elements);
                                         break;
             case "campuses-button":     btn.style.backgroundColor = "rgb(80, 170, 255)";
-                                        showElements(elements);
                                         break;
             default: break;
         }
+        showElements(elements);
     }
+    countResults();
 }
 
 function hideElements(elements) {
     elements.forEach(function(box) {
         box.style.display = 'none';
+        box.querySelector('.result-box').style.display = 'none';
     }); 
 }
 
 function showElements(elements) {
     elements.forEach(function(box) {
-        box.style.display = 'block';
+        /*Check if the box also contains the possible keyword from the search box*/
+        let searchBox = document.querySelector('#search-box');
+        let keywords = searchBox.value;
+        if(box.getElementsByTagName('h5')[0].outerText.toLowerCase().includes(keywords.toLowerCase())) {
+            box.style.display = 'block';
+            box.querySelector('.result-box').style.display = 'flex';
+        }
     }); 
 }
 
+
+
+/*Search*/
+let places = ['Apinapatsas', 'Höyhtyän grilli', 'Kauppuri 5', 'Kontinkangas', 'KULuMA', 'Lipasto', 'Mallaskellari', 'Paska kaupunni', 'Teekkaritalo', 'Toripolliisi'];
+
+function searchWithEnter(e) {
+    if(e.keyCode === 13) {
+        search();
+    }
+}
+
 function search() {
+    /*Get user input*/
+    let searchBox = document.querySelector('#search-box');
+    let keywords = searchBox.value;
+
+    /*Search for valid places*/
+    let matches = [];
+    let notMatches = [];
+    for(let i=0; i < places.length; i++) {
+        if(places[i].toLowerCase().includes(keywords.toLowerCase())) {
+            matches.push(places[i]);
+        } else {
+            notMatches.push(places[i]);
+        }
+    }
+
+    /*Make only valid places visible*/
+    let resultBoxes = document.querySelectorAll('.result-box');
+    resultBoxes.forEach(function(b) {
+        b.style.display = 'flex';
+    })
+    for(let i=0; i < resultBoxes.length; i++) {
+        for(let j=0; j < notMatches.length; j++) {
+            if(resultBoxes[i].innerHTML.includes(notMatches[j])) {
+                resultBoxes[i].style.display = 'none';
+                break;
+            } else {
+                resultBoxes[i].style.display = 'flex';
+            }
+        }
+    }
+
+    /*Show results*/
+    countResults();
     const results = document.querySelector('#categories');
-    console.log(results);
     results.scrollIntoView({behavior: "smooth", block: "start"});
 }
 
 
-/*Popups*/
 
+/*Popups*/
 let overlay = document.getElementById('overlay');
 let apinapatsasDescription = 'The monkey statue or by its official name:"The thirst of knowledge" is a cast bronze statue of an orangutan reading a book.';
 let apinapatsasText = 'It was designed by a local comic artist Raimo Mersänheimo in 1987 and according to him it depicts an animal becoming a thinking being. It is located near the Linnanmaa campus and is popular gathering spot among students.';

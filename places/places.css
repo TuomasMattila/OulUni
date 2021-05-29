@@ -44,6 +44,7 @@ body {
     font-size: var(--font-l);
     font-weight: bold;
     padding-left: 30px;
+    outline: none;
 }
 
 /*Search button*/

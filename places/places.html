@@ -13,7 +13,7 @@
         <title>Places</title>
     </head>
 
-    <body>
+    <body onload="onLoad()">
 
         <div id="overlay">
             <div id="infoPopup">
@@ -87,7 +87,7 @@
 
                 <div id="search-bar">
                     <form action="#">
-                        <input id="search-box" placeholder="Enter keywords">
+                        <input id="search-box" placeholder="Enter keywords" onkeypress="searchWithEnter(event)">
                         <input id="search-button" type="button" value="Search" onclick="search()">
                     </form>
                 </div>  
@@ -101,12 +101,12 @@
                 </div>
 
                 <div id="results">
-                    <h4>Results</h4>
+                    <h4 id="results-heading">Results (</h4>
                     <div class="attraction-box">
                         <div class="result-box">
                             <img src="../img/tiedonjano.jpg" alt="pic">
                             <div id="result-texts">
-                                <h5>Apinapatsas</h5>
+                                <h5 id="place-name">Apinapatsas</h5>
                                 <p>The monkey statue or by its official name:"The thirst of knowledge" is a cast bronze statue of an orangutan reading a book.</p>
                             </div>
                             <button id="view-button" onclick="openPopup('Apinapatsas', 'Kalevantie 5, Kaijonharju', '../img/tiedonjano.jpg')">View</button>
