@@ -123,12 +123,12 @@ function initMap() {
     ['Paska Kaupunni', '../img/paskaKaup.jpg', paskaKaupunniCont, '../img/mapIcons/paskakaupunni.svg', paskaKaupunniLoc, map, 'attractions', paskakaupunniDesc, paskaKaupunniAddress],
     ['Apinapatsas', '../img/tiedonjano.jpg', apinapatsasCont, '../img/mapIcons/apinapatsas.svg', apinapatsasLoc, map, 'attractions', apinapatsasDesc, apinapatsasAddress],
     ['Höyhtyän grilli', '../img/hoyhtyanGrilli.jpg', hoyhtyanGrilliCont, '../img/mapIcons/hoyhtyangrilli.svg', hoyhtyanGrilliLoc, map, 'restaurants', hoyhtyanGrilliDesc, hoyhtyanGrilliAddress],
-    ['Kauppuri 5', null, kauppuri5Cont, '../img/mapIcons/kauppuri5.svg', kauppuri5Loc, map, 'restaurants', kauppuri5Desc, kauppuri5Address],
+    ['Kauppuri 5', '../img/kau5.jpg', kauppuri5Cont, '../img/mapIcons/kauppuri5.svg', kauppuri5Loc, map, 'restaurants', kauppuri5Desc, kauppuri5Address],
     ['Lipasto', '../img/yliopisto.jpg', yliopistoCont, '../img/mapIcons/yliopisto.svg', yliopistoLoc, map, 'campuses', yliopistoDesc,yliopistoAddress],
-    ['Kontinkangas', null, kontinkangasAMKCont, '../img/mapIcons/kontinkangas.svg', kontinkangasAMKLoc, map, 'campuses', kontinkangasAMKDesc, kontinkangasAMKAddress],
+    ['Kontinkangas', '../img/konKam.jpg', kontinkangasAMKCont, '../img/mapIcons/kontinkangas.svg', kontinkangasAMKLoc, map, 'campuses', kontinkangasAMKDesc, kontinkangasAMKAddress],
     ['KULuMA', '../img/kuluma.jpg', kulumaCont, '../img/mapIcons/kuluma.svg', kulumaLoc, map, 'clubsAndBars', kulumaDesc, kulumaAddress],
     ['Mallaskellari', '../img/mallaskellari.jpg', mallaskellariCont, '../img/mapIcons/mallaskellari.svg', mallaskellariLoc, map, 'clubsAndBars', mallaskellariDesc, mallaskellariAddress],
-    ['Lääkis', null , laakisCont, '../img/mapIcons/laakis.svg', laakisLoc, map, 'campuses', laakisDesc, laakisAddress]
+    ['Lääkis', '../img/mallaskellari.jpg' , laakisCont, '../img/mapIcons/laakis.svg', laakisLoc, map, 'campuses', laakisDesc, laakisAddress]
   ];
 
   for (let index = 0; index < markers.length; index++) {

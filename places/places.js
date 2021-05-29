@@ -95,7 +95,7 @@ function openPopup(placeName, placeAddress, image) {
         case 'Kontinkangas':                    placeDescription = kontinkangasDescription;
                                                 placeText = kontinkangasText;
                                                 break;
-        case 'Lipasto (the Linnanmaa campus)':  placeDescription = lipastoDescription;
+        case 'Lipasto':  placeDescription = lipastoDescription;
                                                 placeText = lipastoText;
                                                 break;
         case 'Mango':                           placeDescription = mangoDescription;
