@@ -238,6 +238,7 @@ body {
 
 .mapBigButton:hover {
     box-shadow: inset 0 0 0 .4rem var(--color-secondary);
+    cursor: pointer;
 }
 
 #locationButton {

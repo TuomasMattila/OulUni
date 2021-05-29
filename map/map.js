@@ -37,6 +37,8 @@ const paskaKaupunniLoc = { lat: 65.012859, lng: 25.476885 };
 const teekkaritaloLoc = { lat: 65.063879, lng: 25.484157 };
 const toripolliisiLoc = { lat: 65.013306, lng: 25.464720 };
 const yliopistoLoc = { lat: 65.059316, lng: 25.466266 };
+const kulumaLoc = { lat: 65.01289495311028, lng: 25.46660501938745 };
+const mallaskellariLoc = { lat: 65.01206702055481, lng: 25.471256488516314 };
 
 const apinapatsasAddress = 'Kalevantie 5, Kaijonharju';
 const hoyhtyanGrilliAddress = 'Latokartanontie 1, 90150 Oulu';
@@ -47,6 +49,8 @@ const paskaKaupunniAddress = 'Uusikatu 22, 90100 Oulu';
 const teekkaritaloAddress = 'Kalervontie 7, 90570 Oulu';
 const toripolliisiAddress = 'Rantakatu 6, 90100 Oulu';
 const yliopistoAddress = 'Pentti Kaiteran katu 1, 90570 Oulu';
+const kulumaAddress = 'Pentti Kaiteran katu 1, 90570 Oulu';
+const mallaskellariAddress = 'Kirkkokatu 17, 90100 Oulu';
 
 const apinapatsasDesc = 'The monkey statue or by its official name: "The thirst for knowledge" is a cast bronze statue of an orangutan reading a book. '
 const apinapatsasCont = 'It was designed by a local comic artist Raimo Mersänheimo in 1987 and according to him it depicts an animal becoming a thinking being. ' +
@@ -91,10 +95,16 @@ const toripolliisiCont = 'It can be concidered an icon of the city itself. It is
   'Stands in honour of the 3 bobbies who stood watch in the square for 44 years in the mid 20th century. ' +
   'Nothing special, yet the city\'s symbol and a must see for anyone visiting or new here. ';
 
-const yliopistoDesc = 'Lipasto(the dresser) is the University of Oulu\'s and the Oulu University of Applied Sciences shared primary campus at Linnanmaa.';
+const yliopistoDesc = 'Lipasto (the dresser) is the University of Oulu\'s and the Oulu University of Applied Sciences shared primary campus at Linnanmaa.';
 const yliopistoCont = 'As such it is the primary center of learning and student activities in Oulu. ' +
   'The large buildings sheer area works as a good exercise when two lectures are on opposite ends and there is just 15 minutes between them. ' +
   'Cheap and decent food, quiet places for studying, others less so for spending time';
+
+  const kulumaDesc = 'Needs a fitting short description';
+  const kulumaCont = 'Some drinking spots pride themselves for having a specialty, some trick or gimmick that separates them form the mass. Others offer a steady mix of all aspects, Jacks of all trades  if one may. To stand out among these unspecial kinds is rare. To be do this requires a good location and highly skilled staff. Located in a key point in the city KULuMa does this and stands as one of the best overall drinking spots in Oulu.';
+
+  const mallaskellariDesc = 'For bars and such there exist those of two kinds. Others for partying and others for spending an evening. Of this latter kind one of the best in Oulu is the Alehouse known as Mallaskellari.';
+  const mallaskellariCont = 'Roughly translating to Maltcellar it offers the largest selection beers within the city. Friendly and skilled staff and a helping of retro consoles for spending time make it an amazing fit for a relaxing evening.';
 
 //  Maps stuff
 //
@@ -113,7 +123,12 @@ function initMap() {
     ['Paska Kaupunni', '../img/paskaKaup.jpg', paskaKaupunniCont, '../img/mapIcons/paskakaupunni.svg', paskaKaupunniLoc, map, 'attractions', paskakaupunniDesc, paskaKaupunniAddress],
     ['Apinapatsas', '../img/tiedonjano.jpg', apinapatsasCont, '../img/mapIcons/apinapatsas.svg', apinapatsasLoc, map, 'attractions', apinapatsasDesc, apinapatsasAddress],
     ['Höyhtyän grilli', '../img/hoyhtyanGrilli.jpg', hoyhtyanGrilliCont, '../img/mapIcons/hoyhtyangrilli.svg', hoyhtyanGrilliLoc, map, 'restaurants', hoyhtyanGrilliDesc, hoyhtyanGrilliAddress],
-    ['Kauppuri 5', null, kauppuri5Cont, '../img/mapIcons/kauppuri5.svg', kauppuri5Loc, map, 'restaurants', kauppuri5Desc, kauppuri5Address]
+    ['Kauppuri 5', '../img/kau5.jpg', kauppuri5Cont, '../img/mapIcons/kauppuri5.svg', kauppuri5Loc, map, 'restaurants', kauppuri5Desc, kauppuri5Address],
+    ['Lipasto', '../img/yliopisto.jpg', yliopistoCont, '../img/mapIcons/yliopisto.svg', yliopistoLoc, map, 'campuses', yliopistoDesc,yliopistoAddress],
+    ['Kontinkangas', '../img/konKam.jpg', kontinkangasAMKCont, '../img/mapIcons/kontinkangas.svg', kontinkangasAMKLoc, map, 'campuses', kontinkangasAMKDesc, kontinkangasAMKAddress],
+    ['KULuMA', '../img/kuluma.jpg', kulumaCont, '../img/mapIcons/kuluma.svg', kulumaLoc, map, 'clubsAndBars', kulumaDesc, kulumaAddress],
+    ['Mallaskellari', '../img/mallaskellari.jpg', mallaskellariCont, '../img/mapIcons/mallaskellari.svg', mallaskellariLoc, map, 'clubsAndBars', mallaskellariDesc, mallaskellariAddress],
+    ['Lääkis', '../img/mallaskellari.jpg' , laakisCont, '../img/mapIcons/laakis.svg', laakisLoc, map, 'campuses', laakisDesc, laakisAddress]
   ];
 
   for (let index = 0; index < markers.length; index++) {
@@ -121,24 +136,9 @@ function initMap() {
 
   }
 
-  /*   addMarkerWithWindow('Teekkaritalo', '../img/teekTal.jpg', teekkaritaloCont, '../img/mapIcons/teekkaritalo.svg', teekkaritaloLoc, map);
-    addMarkerWithWindow('Toripolliisi', '../img/torpo.jpg', toripolliisiCont, '../img/mapIcons/toripolliisi.svg', toripolliisiLoc, map);
-    addMarkerWithWindow('Paska Kaupunni', '../img/paskaKaup.jpg', paskaKaupunniCont, '../img/mapIcons/paskakaupunni.svg', paskaKaupunniLoc, map);
-    addMarkerWithWindow('Apinapatsas', '../img/tiedonjano.jpg', apinapatsasCont, '../img/mapIcons/apinapatsas.svg', apinapatsasLoc, map);
-  
-    addMarkerWithWindow('Höyhtyän grilli', '../img/hoyhtyanGrilli.jpg', hoyhtyanGrilliCont, '../img/mapIcons/hoyhtyangrilli.svg', hoyhtyanGrilliLoc, map);
-    addMarkerWithWindow('Kauppuri 5', null, kauppuri5Cont, '../img/mapIcons/kauppuri5.svg', kauppuri5Loc, map); */
-  /*
-addMarkerWithWindow('Lääketieteellinen Tiedekunta', '../img/konKam.jpg', laakisCont, '../img/campuses.svg', laakisLoc, map);
-addMarkerWithWindow('Kauppuri 5', null, kauppuri5Cont, '../img/restaurants.svg', kauppuri5Loc, map);
-addMarkerWithWindow('Kontinkankaan kampus (AMK)', null, kontinkangasAMKCont, '../img/campuses.svg', kontinkangasAMKLoc, map);
-addMarkerWithWindow('Yliopisto', '../img/yliopisto.jpg', yliopistoCont, '../img/campuses.svg', yliopistoLoc, map); */
-
   myLocation = new google.maps.InfoWindow();
-  const locationButton = document.createElement("button");
-  locationButton.textContent = "My location";
+  const locationButton = document.querySelector("#locationButton");
   locationButton.classList.add("custom-map-control-button");
-  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(locationButton);
   locationButton.addEventListener("click", () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -226,7 +226,7 @@ function addMarkerWithWindow(markerInfo) {
               <div id="shortDesc">
                   <p>${desc}</p>
               </div>
-              <button id="showOnMapButton" onclick="navigateTo('Kauppurienkatu 5, 90100 Oulu')">NAVIGATE TO</button>
+              <button id="showOnMapButton" onclick="navigateTo('${address}')">NAVIGATE TO</button>
       </div>
 
       <div id="popupText">
