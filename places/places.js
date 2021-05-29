@@ -86,8 +86,17 @@ function searchWithEnter(e) {
 
 function search() {
     /*Get user input*/
+    let resultBoxes = document.querySelectorAll('.result-box');
     let searchBox = document.querySelector('#search-box');
     let keywords = searchBox.value;
+    if(keywords === ""){
+        resultBoxes.forEach(function(b) {
+            b.style.display = 'flex';
+            console.log('hmm');
+        })
+        countResults();
+        return;
+    }
 
     /*Search for valid places*/
     let matches = [];
@@ -101,7 +110,6 @@ function search() {
     }
 
     /*Make only valid places visible*/
-    let resultBoxes = document.querySelectorAll('.result-box');
     resultBoxes.forEach(function(b) {
         b.style.display = 'flex';
     })
