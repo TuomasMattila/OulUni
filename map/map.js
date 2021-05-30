@@ -40,7 +40,7 @@ const yliopistoLoc = { lat: 65.059316, lng: 25.466266 };
 const kulumaLoc = { lat: 65.01289495311028, lng: 25.46660501938745 };
 const mallaskellariLoc = { lat: 65.01206702055481, lng: 25.471256488516314 };
 
-const apinapatsasAddress = 'Kalevalantie 5, 90570 Oulu';
+const apinapatsasAddress = 'Kalevalantie 5, Kaijonharju';
 const hoyhtyanGrilliAddress = 'Latokartanontie 1, 90150 Oulu';
 const laakisAddress = 'Aapistie 5 A, 90220 Oulu';
 const kauppuri5Address = 'Kauppurienkatu 5, 90100 Oulu';
@@ -49,7 +49,7 @@ const paskaKaupunniAddress = 'Uusikatu 22, 90100 Oulu';
 const teekkaritaloAddress = 'Kalervontie 7, 90570 Oulu';
 const toripolliisiAddress = 'Rantakatu 6, 90100 Oulu';
 const yliopistoAddress = 'Pentti Kaiteran katu 1, 90570 Oulu';
-const kulumaAddress = 'Pentti Kaiteran katu 1, 90570 Oulu';
+const kulumaAddress = 'Kauppurienkatu 5, 90100 Oulu';
 const mallaskellariAddress = 'Kirkkokatu 17, 90100 Oulu';
 
 const apinapatsasDesc = 'The monkey statue or by its official name: "The thirst for knowledge" is a cast bronze statue of an orangutan reading a book. '
@@ -67,8 +67,8 @@ const kauppuri5Cont = 'It\'s legend is made of it\'s special attitude to making 
   'Their menu includes hits like: "Blue cheese PERKELE!", "Angry Chicken", Kauppuri 5 and "The Butcher" line of burgers, ' +
   'largest of which contains an entire kilo of pulled pork, roast beef, minced meat and bacon.';
 
-const kontinkangasAMKDesc = 'Desc'
-const kontinkangasAMKCont = 'University of Applied Sciences campus at Kontinkangas.';
+const kontinkangasAMKDesc = 'The secondary campus in Oulu. Medical and biochemical from the university and some from applied sciences dwell here.'
+const kontinkangasAMKCont = 'Specializes in helping people due to being semi attached to the city\'s hospital.';
 
 const laakisDesc = 'The secondary campus in Oulu. Medical and biochemical from the university and some from applied sciences dwell here.';
 const laakisCont =
@@ -77,9 +77,9 @@ const laakisCont =
 const paskakaupunniDesc = 'How often does a piece of graffiti end up on a city\'s list of sights? Oulu is one of such and the spray in question is on the' +
   ' wall of uusikatu 22 in central Oulu. ';
 const paskaKaupunniCont = 'It is a stylized text that simply states: "Shitty city." It is inspired by a rocksong of the same name by Kauko Röyhkä who wrote ' +
-  'the song to lovingly commemorate his youth in Oulu.' +
+  'the song to lovingly commemorate his youth in Oulu. ' +
   'It appeared on the wall in the mid eighties and despite several dozens of attempts to remove it from then to now, it always seems ' +
-  'to reappear sooner or later.' +
+  'to reappear sooner or later. ' +
   'It is also the namesake and logo of a local culture organization since 2007. ' +
   'A protected and reapplied landmark nowadays. ' +
   'Kinda has a point when it is made into an attraction?';
@@ -90,7 +90,7 @@ const teekkaritaloCont = 'This partyhouse is often rented by other guilds too ma
   'Built by the teekkaris and by providing work for unemployed people in 1992.';
 
 const toripolliisiDesc = 'Toripolliisi or in English: "Bobby at the market place" is possibly the most popular and quintessential landmark in Oulu.';
-const toripolliisiCont = 'It can be concidered an icon of the city itself. It is a bronze sculpture of a caricaturized policeman displayed at the edge of the market square.' +
+const toripolliisiCont = 'It can be concidered an icon of the city itself. It is a bronze sculpture of a caricaturized policeman displayed at the edge of the market square. ' +
   'Made via charity in 1985, unveiled in 1987. ' +
   'Stands in honour of the 3 bobbies who stood watch in the square for 44 years in the mid 20th century. ' +
   'Nothing special, yet the city\'s symbol and a must see for anyone visiting or new here. ';
@@ -100,8 +100,8 @@ const yliopistoCont = 'As such it is the primary center of learning and student 
   'The large buildings sheer area works as a good exercise when two lectures are on opposite ends and there is just 15 minutes between them. ' +
   'Cheap and decent food, quiet places for studying, others less so for spending time';
 
-  const kulumaDesc = 'Needs a fitting short description';
-  const kulumaCont = 'Some drinking spots pride themselves for having a specialty, some trick or gimmick that separates them form the mass. Others offer a steady mix of all aspects, Jacks of all trades  if one may. To stand out among these unspecial kinds is rare. To be do this requires a good location and highly skilled staff. Located in a key point in the city KULuMa does this and stands as one of the best overall drinking spots in Oulu.';
+  const kulumaDesc = 'Some drinking spots pride themselves for having a specialty, some trick or gimmick that separates them form the mass. Others offer a steady mix of all aspects, Jacks of all trades  if one may. To stand out among these unspecial kinds is rare.';
+  const kulumaCont = 'To be do this requires a good location and highly skilled staff. Located in a key point in the city KULuMa does this and stands as one of the best overall drinking spots in Oulu.';
 
   const mallaskellariDesc = 'For bars and such there exist those of two kinds. Others for partying and others for spending an evening. Of this latter kind one of the best in Oulu is the Alehouse known as Mallaskellari.';
   const mallaskellariCont = 'Roughly translating to Maltcellar it offers the largest selection beers within the city. Friendly and skilled staff and a helping of retro consoles for spending time make it an amazing fit for a relaxing evening.';
