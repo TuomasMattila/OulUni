@@ -8,8 +8,9 @@ function countResults() {
     let boxes = document.querySelectorAll('.result-box');
     for(let i=0; i < boxes.length; i++) {
         if(window.getComputedStyle(boxes[i]).display === 'flex') {
-            if(boxes[i].parentElement.style.display != 'none')
-                number++;
+            number++;
+            /*if(boxes[i].parentElement.style.display != 'none')
+                number++;*/
         }
     }
     let resultsHeading = document.getElementById('results-heading');
@@ -56,7 +57,7 @@ function toggleButton(elementId) {
 
 function hideElements(elements) {
     elements.forEach(function(box) {
-        box.style.display = 'none';
+        /*box.style.display = 'none';*/
         box.querySelector('.result-box').style.display = 'none';
     }); 
 }
@@ -67,7 +68,7 @@ function showElements(elements) {
         let searchBox = document.querySelector('#search-box');
         let keywords = searchBox.value;
         if(box.getElementsByTagName('h5')[0].outerText.toLowerCase().includes(keywords.toLowerCase())) {
-            box.style.display = 'block';
+            /*box.style.display = 'block';*/
             box.querySelector('.result-box').style.display = 'flex';
         }
     }); 
@@ -93,6 +94,7 @@ function search() {
         resultBoxes.forEach(function(b) {
             b.style.display = 'flex';
         })
+        checkCategories();
         countResults();
         const results = document.querySelector('#categories');
         results.scrollIntoView({behavior: "smooth", block: "start"});
@@ -129,6 +131,25 @@ function search() {
     countResults();
     const results = document.querySelector('#categories');
     results.scrollIntoView({behavior: "smooth", block: "start"});
+}
+
+/*Check categories*/
+let categoryButtons = ['attractions-button', 'restaurants-button', 'partyspots-button', 'clubs-button', 'campuses-button'];
+
+function checkCategories() {
+    for(let i=0; i < categoryButtons.length; i++) {
+        let btn = document.getElementById(categoryButtons[i]);
+        let selector;
+        if(categoryButtons[i] == "campuses-button") {
+            selector = '.' + categoryButtons[i].replace("es-button", "-box");
+        } else {
+            selector = '.' + categoryButtons[i].replace("s-button", "-box");
+        }
+        let elements = document.querySelectorAll(selector);
+        if(!btn.innerHTML.includes("✓")) {
+            hideElements(elements);
+        }
+    }
 }
 
 
