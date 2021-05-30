@@ -76,11 +76,14 @@ function showElements(elements) {
 /*Search*/
 let places = ['Apinapatsas', 'Höyhtyän grilli', 'Kauppuri 5', 'Kontinkangas', 'KULuMA', 'Lipasto', 'Mallaskellari', 'Paska kaupunni', 'Teekkaritalo', 'Toripolliisi'];
 
-function searchWithEnter(e) {
-    if(e.keyCode === 13) {
-        search();
-    }
-}
+/*Enables search with enter key*/
+var input = document.getElementById("search-box");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("search-button").click();
+  }
+});
 
 function search() {
     /*Get user input*/
