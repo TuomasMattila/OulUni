@@ -40,7 +40,7 @@ const yliopistoLoc = { lat: 65.059316, lng: 25.466266 };
 const kulumaLoc = { lat: 65.01289495311028, lng: 25.46660501938745 };
 const mallaskellariLoc = { lat: 65.01206702055481, lng: 25.471256488516314 };
 
-const apinapatsasAddress = 'Kalevantie 5, Kaijonharju';
+const apinapatsasAddress = 'Kalevalantie 5, 90570 Oulu';
 const hoyhtyanGrilliAddress = 'Latokartanontie 1, 90150 Oulu';
 const laakisAddress = 'Aapistie 5 A, 90220 Oulu';
 const kauppuri5Address = 'Kauppurienkatu 5, 90100 Oulu';
