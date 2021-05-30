@@ -1,33 +1,32 @@
-// For adjusting the header so that it doesn't shift without scrollwheel on the map page
+// Some tinkering so that the header content stays in the same place with or 
+// without a scrollbar.
+//
 function adjustHeader() {
 
-  // Creating invisible container
   const outer = document.createElement('div');
   outer.style.visibility = 'hidden';
   outer.style.overflow = 'scroll'; // forcing scrollbar to appear
   outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
   document.body.appendChild(outer);
 
-  // Creating inner element and placing it in the container
   const inner = document.createElement('div');
   outer.appendChild(inner);
 
-  // Calculating difference between container's full width and the child width
   const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
 
-  // Removing temporary elements from the DOM
   outer.parentNode.removeChild(outer);
 
   const header = document.querySelector('header');
   header.style.paddingRight = `${scrollbarWidth}px`;
 }
 
+// Adjusts header
 adjustHeader();
 
 let map, myLocation;
-
 let markersOnMap = [];
 
+// Places' coordinates
 const apinapatsasLoc = { lat: 65.061260, lng: 25.480190 };
 const hoyhtyanGrilliLoc = { lat: 64.997230, lng: 25.487076 };
 const laakisLoc = { lat: 65.008626, lng: 25.521646 };
@@ -40,6 +39,7 @@ const yliopistoLoc = { lat: 65.059316, lng: 25.466266 };
 const kulumaLoc = { lat: 65.01289495311028, lng: 25.46660501938745 };
 const mallaskellariLoc = { lat: 65.01206702055481, lng: 25.471256488516314 };
 
+// Places' addresses
 const apinapatsasAddress = 'Kalevalantie 5, Kaijonharju';
 const hoyhtyanGrilliAddress = 'Latokartanontie 1, 90150 Oulu';
 const laakisAddress = 'Aapistie 5 A, 90220 Oulu';
@@ -52,6 +52,8 @@ const yliopistoAddress = 'Pentti Kaiteran katu 1, 90570 Oulu';
 const kulumaAddress = 'Kauppurienkatu 5, 90100 Oulu';
 const mallaskellariAddress = 'Kirkkokatu 17, 90100 Oulu';
 
+
+// Here are the description and main content texts for popups.
 const apinapatsasDesc = 'The monkey statue or by its official name: "The thirst for knowledge" is a cast bronze statue of an orangutan reading a book. '
 const apinapatsasCont = 'It was designed by a local comic artist Raimo Mersänheimo in 1987 and according to him it depicts an animal becoming a thinking being. ' +
   'The statue is located next to Kaijonharju library, near the Linnanmaa campus and is popular gathering spot among students.';
@@ -106,7 +108,7 @@ const yliopistoCont = 'As such it is the primary center of learning and student 
   const mallaskellariDesc = 'For bars and such there exist those of two kinds. Others for partying and others for spending an evening. Of this latter kind one of the best in Oulu is the Alehouse known as Mallaskellari.';
   const mallaskellariCont = 'Roughly translating to Maltcellar it offers the largest selection beers within the city. Friendly and skilled staff and a helping of retro consoles for spending time make it an amazing fit for a relaxing evening.';
 
-//  Maps stuff
+//  Creates the map and its markers.
 //
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -173,6 +175,9 @@ function initMap() {
 
 }
 
+
+// Creates a marker and its info popup.
+// 
 function addMarkerWithWindow(markerInfo) {
   let name = markerInfo[0];
   let image = markerInfo[1];
@@ -204,10 +209,6 @@ function addMarkerWithWindow(markerInfo) {
 
   var popup = document.getElementById('popup');
   var popupText = document.getElementById('popupText');
-  /*   if(image == null) {
-      var popupContentText = `<h4>${name}</h4> <p>${content}</p> <button onclick="closePopup()">CLOSE</button>`;
-    }
-    else { */
   var popupContentText = `
   <div id="popupInside">
     <div id="topbar">
@@ -235,8 +236,9 @@ function addMarkerWithWindow(markerInfo) {
       </div>
     </div>
   </div>`;
-  /*   } */
 
+  // Makes the markers clickable. Opens info popup with relevant information.
+  //
   google.maps.event.addListener(marker, 'click', function (e) {
     console.log('open');
     map.panTo(marker.getPosition());
@@ -250,6 +252,8 @@ function addMarkerWithWindow(markerInfo) {
   });
 }
 
+// Hides the info popup.
+//
 function closePopup() {
   let popupText = document.getElementById('popupText');
   popupText.innerHTML = "";
@@ -268,6 +272,9 @@ function handleLocationError(browserHasGeolocation, myLocation, pos) {
   myLocation.open(map);
 }
 
+
+// Controls which markers are shown on the map. 
+//
 function filter() {
 
   let filters = document.querySelectorAll('.filterLabel > input');
@@ -306,6 +313,8 @@ function filter() {
 
 }
 
+// Toggles all filters ON, all markers are shown on map
+//
 function selectAllFilters() {
   for (let index = 0; index < markersOnMap.length; index++) {
     const marker = markersOnMap[index];
@@ -315,6 +324,8 @@ function selectAllFilters() {
   }
 }
 
+// Toggles all filters OFF, all markers are hidden on map.
+//
 function deselectAllFilters() {
   for (let index = 0; index < markersOnMap.length; index++) {
     const marker = markersOnMap[index];
@@ -324,13 +335,17 @@ function deselectAllFilters() {
   }
 }
 
+// Makes filter buttons clickable.
+//
 const filterButtons = document.querySelectorAll('.filterLabel > input');
-
 filterButtons.forEach(element => {
   element.addEventListener('click', filter);
 });
 
-function toggleFilters() {
+
+// Shows/hides the filters' box.
+//
+function toggleFiltersVisibility() {
   const input = document.querySelector('.filterboxToggleLabel input');
 
   const filterbox = document.querySelector('#filtersContainer');

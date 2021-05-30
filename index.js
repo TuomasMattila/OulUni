@@ -88,6 +88,8 @@ function changeAdjective() {
 
 }
 
+// Gets a random int based on max value possible.
+//
 function getRandomInt(max) {
     let value = Math.floor(Math.random() * max);
     if (value == previousIndex) {
