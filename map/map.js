@@ -74,7 +74,7 @@ const laakisDesc = 'The secondary campus in Oulu. Medical and biochemical from t
 const laakisCont =
   'Specializes in helping people due to being semi attached to the city\'s hospital.';
 
-const paskakaupunniDesc = 'How often does a piece of graphiti end up on a city\'s list of sights? Oulu is one of such and the spray in question is on the' +
+const paskakaupunniDesc = 'How often does a piece of graffiti end up on a city\'s list of sights? Oulu is one of such and the spray in question is on the' +
   ' wall of uusikatu 22 in central Oulu. ';
 const paskaKaupunniCont = 'It is a stylized text that simply states: "Shitty city." It is inspired by a rocksong of the same name by Kauko Röyhkä who wrote ' +
   'the song to lovingly commemorate his youth in Oulu.' +

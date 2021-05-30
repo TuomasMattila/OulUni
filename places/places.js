@@ -1,3 +1,4 @@
+/*This function is called whenever the 'Places' -page is opened*/
 function onLoad() {
     countResults();
 }
@@ -9,8 +10,6 @@ function countResults() {
     for(let i=0; i < boxes.length; i++) {
         if(window.getComputedStyle(boxes[i]).display === 'flex') {
             number++;
-            /*if(boxes[i].parentElement.style.display != 'none')
-                number++;*/
         }
     }
     let resultsHeading = document.getElementById('results-heading');
@@ -19,7 +18,7 @@ function countResults() {
 
 
 
-/*Category buttons*/
+/*CATEGORY BUTTONS******************************************************/
 function toggleButton(elementId) {
     let btn = document.getElementById(elementId);
     let selector;
@@ -29,11 +28,13 @@ function toggleButton(elementId) {
         selector = '.' + elementId.replace("s-button", "-box");
     }
     let elements = document.querySelectorAll(selector);
+    /*Disable button*/
     if(btn.innerHTML.includes("✓")) {
         btn.innerHTML = btn.innerHTML.replace(" ✓", "");
         btn.style.backgroundColor = "darkgrey";
         btn.style.color = "grey";
         hideElements(elements);
+    /*Activate button*/
     } else {
         btn.innerHTML += " ✓";
         btn.style.color = "black";
@@ -63,6 +64,7 @@ function hideElements(elements) {
 
 function showElements(elements) {
     elements.forEach(function(box) {
+        /*Makes the box visible only if it also contains the possible keywords written by the user*/
         let searchBox = document.querySelector('#search-box');
         let keywords = searchBox.value;
         if(box.getElementsByTagName('h5')[0].outerText.toLowerCase().includes(keywords.toLowerCase())) {
@@ -73,7 +75,7 @@ function showElements(elements) {
 
 
 
-/*Search*/
+/*SEARCH******************************************************/
 let places = ['Apinapatsas', 'Höyhtyän grilli', 'Kauppuri 5', 'Kontinkangas', 'KULuMA', 'Lipasto', 'Mallaskellari', 'Paska kaupunni', 'Teekkaritalo', 'Toripolliisi'];
 
 /*Enables search with enter key*/
@@ -127,9 +129,9 @@ function search() {
         }
     }
     checkCategories();
+    countResults();
 
     /*Show results*/
-    countResults();
     const results = document.querySelector('#categories');
     results.scrollIntoView({behavior: "smooth", block: "start"});
 }
@@ -155,7 +157,7 @@ function checkCategories() {
 
 
 
-/*Popups*/
+/*POPUPS******************************************************/
 let overlay = document.getElementById('overlay');
 let apinapatsasDescription = 'The monkey statue or by its official name:"The thirst of knowledge" is a cast bronze statue of an orangutan reading a book.';
 let apinapatsasText = 'It was designed by a local comic artist Raimo Mersänheimo in 1987 and according to him it depicts an animal becoming a thinking being. It is located near the Linnanmaa campus and is popular gathering spot among students.';
@@ -171,7 +173,7 @@ let lipastoDescription = 'Lipasto(the dresser) is the University of oulu\'s and 
 let lipastoText = 'As such it is the primary center of learning and student activities in Oulu.<br/>- The large buildings sheer area works as a good exercise when two lectures are on opposite ends and there is just 15 minutes between them.<br/>- Cheap and decent food, quiet places for studying, others less so for spending time.';
 let mallaskellariDescription = 'For bars and such there exist those of two kinds. Others for partying and others for spending an evening. Of this latter kind one of the best in Oulu is the Alehouse known as Mallaskellari.';
 let mallaskellariText = 'Roughly translating to Maltcellar it offers the largest selection beers within the city. Friendly and skilled staff and a helping of retro consoles for spending time make it an amazing fit for a relaxing evening.';
-let paskakaupunniDescription = 'How often does a piece of graphiti end up on a city\'s list of sights? Oulu is one of such and the spray in question is on the wall of uusikatu 22 in central Oulu.';
+let paskakaupunniDescription = 'How often does a piece of graffiti end up on a city\'s list of sights? Oulu is one of such and the spray in question is on the wall of uusikatu 22 in central Oulu.';
 let paskakaupunniText = 'It is a stylized text that simply states: "Shitty city." It is inspired by a rocksong of the same name by Kauko Röyhkä who wrote the song to lovingly commemorate his youth in Oulu. It appeared on the wall in the mid eighties and despite several dozens of attempts to remove it from then to now, it allways seems to reappear sooner or later.<br/>- It is also the namesake and logo of a local culture organization since 2007.<br/>- A protected and reapplied landmark nowadays.<br/>- Kinda has a point when it is made into an attraction?';
 let teekkaritaloDescription = 'The official clubspot of the engineering students or more commonly the teekkaris in oulu.';
 let teekkaritaloText = 'This partyhouse is often rented by other guilds too making it the premier place for student parties in Oulu.<br/>- Has a great sauna because the idea of building it was concieved beer in hand in a sauna.<br/>- Built by the teekkaris and by providing work for unemployed people in 1992.';
@@ -253,6 +255,6 @@ function closePopup() {
 }
 
 function showOnMapButton(placeName) {
-    sessionStorage.setItem('placeToBeShown', placeName);
+    sessionStorage.setItem('placeToBeShown', placeName); //This is used in the 'onLoad()' -function in map.js.
     window.location.href = "../map/map.html"
 }
