@@ -57,18 +57,15 @@ function toggleButton(elementId) {
 
 function hideElements(elements) {
     elements.forEach(function(box) {
-        /*box.style.display = 'none';*/
         box.querySelector('.result-box').style.display = 'none';
     }); 
 }
 
 function showElements(elements) {
     elements.forEach(function(box) {
-        /*Check if the box also contains the possible keyword from the search box*/
         let searchBox = document.querySelector('#search-box');
         let keywords = searchBox.value;
         if(box.getElementsByTagName('h5')[0].outerText.toLowerCase().includes(keywords.toLowerCase())) {
-            /*box.style.display = 'block';*/
             box.querySelector('.result-box').style.display = 'flex';
         }
     }); 
@@ -126,6 +123,7 @@ function search() {
             }
         }
     }
+    checkCategories();
 
     /*Show results*/
     countResults();
