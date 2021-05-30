@@ -310,7 +310,8 @@ function selectAllFilters() {
   for (let index = 0; index < markersOnMap.length; index++) {
     const marker = markersOnMap[index];
     marker.setVisible(true);
-    filterButtons[index].checked = true;
+    if(index < filterButtons.length)
+      filterButtons[index].checked = true;
   }
 }
 
@@ -318,12 +319,12 @@ function deselectAllFilters() {
   for (let index = 0; index < markersOnMap.length; index++) {
     const marker = markersOnMap[index];
     marker.setVisible(false);
-    filterButtons[index].checked = false;
+    if(index < filterButtons.length)
+      filterButtons[index].checked = false;
   }
 }
 
 const filterButtons = document.querySelectorAll('.filterLabel > input');
-console.log(filterButtons);
 
 filterButtons.forEach(element => {
   element.addEventListener('click', filter);
