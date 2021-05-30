@@ -136,6 +136,7 @@ function initMap() {
 
   }
 
+  /* Gets user's current location */
   myLocation = new google.maps.InfoWindow();
   const locationButton = document.querySelector("#locationButton");
   locationButton.classList.add("custom-map-control-button");
@@ -256,6 +257,7 @@ function closePopup() {
   popup.classList.remove('open');
 }
 
+/*If user's Geolocation isn't available*/
 function handleLocationError(browserHasGeolocation, myLocation, pos) {
   myLocation.setPosition(pos);
   myLocation.setContent(
@@ -356,6 +358,7 @@ function onLoad() {
   }
 }
 
+/*Gets user location, destination location and creates a Google Maps Link*/
 function navigateTo(destination) {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -365,17 +368,15 @@ function navigateTo(destination) {
           lng: position.coords.longitude,
         };
         const destLoc = destination.replace(/\s/g, '+');
-        var navLink = 'https://www.google.fi/maps/dir/' + pos.lat + ',' + pos.lng + '/' + destination;
+        var navLink = 'https://www.google.fi/maps/dir/' + pos.lat + ',' + pos.lng + '/' + destLoc;
         window.open(navLink, '_blank');
       },
       () => {
         handleLocationError(true, myLocation, map.getCenter());
       }
-    ); 
-    
+    );     
   }
   else {
     handleLocationError(false, myLocation, map.getCenter());
-  }
-  
+  }  
 }
