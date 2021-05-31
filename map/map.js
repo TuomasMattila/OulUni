@@ -291,14 +291,6 @@ function filter() {
 
   console.log('should show ' + categoriesToShow.toString());
 
-  /*   if (categoriesToShow.length == 0) {
-  
-      for (let index = 0; index < markersOnMap.length; index++) {
-        markersOnMap[index].setVisible(true);
-      }
-  
-    } else { */
-
   for (let index = 0; index < markersOnMap.length; index++) {
     const marker = markersOnMap[index];
 
