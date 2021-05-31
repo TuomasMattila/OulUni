@@ -102,7 +102,7 @@ const yliopistoCont = 'As such it is the primary center of learning and student 
   'The large buildings sheer area works as a good exercise when two lectures are on opposite ends and there is just 15 minutes between them. ' +
   'Cheap and decent food, quiet places for studying, others less so for spending time';
 
-  const kulumaDesc = 'Some drinking spots pride themselves for having a specialty, some trick or gimmick that separates them form the mass. Others offer a steady mix of all aspects, Jacks of all trades  if one may. To stand out among these unspecial kinds is rare.';
+  const kulumaDesc = 'Some drinking spots pride themselves for having a specialty, some trick or gimmick that separates them from the mass. Others offer a steady mix of all aspects, Jacks of all trades  if one may. To stand out among these unspecial kinds is rare.';
   const kulumaCont = 'To be do this requires a good location and highly skilled staff. Located in a key point in the city KULuMa does this and stands as one of the best overall drinking spots in Oulu.';
 
   const mallaskellariDesc = 'For bars and such there exist those of two kinds. Others for partying and others for spending an evening. Of this latter kind one of the best in Oulu is the Alehouse known as Mallaskellari.';
